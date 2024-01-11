@@ -5,6 +5,7 @@ import FoundAnimalsPage from './pages/FoundAnimalsPage'
 import HomelessAnimalsPage from './pages/HomelessAnimalsPage'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Practice from './components/Practice'
 
 
 
@@ -13,7 +14,8 @@ const AppRoutes = () => {
     { path: '/',          element: <HomePage/>},
     { path: '/missing',   element: <MissingAnimalsPage/>},
     { path: '/found',     element: <FoundAnimalsPage/>},
-    { path: '/homeless',  element: <HomelessAnimalsPage/>}
+    { path: '/homeless',  element: <HomelessAnimalsPage/>},
+    { path: '/practice',  element: <Practice/>}
   ])
   return routes
 }
@@ -23,7 +25,6 @@ function App() {
     <div className='bg-red-100'>
       <BrowserRouter>
         <Navbar/>
-        Aplicacion chicoti para encontrar y buscar perritos perdidos
         <AppRoutes/>
         <Footer/>
       </BrowserRouter>

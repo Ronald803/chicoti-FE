@@ -18,7 +18,7 @@ function CreateAnimalForm() {
         console.log(animal);
     }
 return (
-    <div>
+    <div className='rounded-lg m-1 p-3 border-4 border-blue-800'>
         <form onSubmit={handleSubmit}>
             <div>
                 <label  htmlFor='name'>Nombre</label>
@@ -31,12 +31,11 @@ return (
             </div>
             <div>
                 <label  htmlFor='species'>Especie</label>
-                <input 
-                    type='text'
-                    id='species'
-                    name='species'
-                    onChange={handleChange}
-                />
+                <select name="species" id="species" onChange={handleChange}>
+                    <option value="dog">Perro</option>
+                    <option value="cat">Gato</option>
+                    <option valued="other">Otro</option>
+                </select>
             </div>
             <div>
                 <label  htmlFor='age'>Edad (años)</label>
@@ -57,10 +56,12 @@ return (
                 />
             </div>
             <div>
-                <fieldset>
-                    <legend>El animalito está esterilizado?</legend>
-                    <label><input name="sterilized" onChange={handleChange} id="true" type="radio"/>Esterilizado</label>
-                </fieldset>
+                <label htmlFor='sterilized'>Esterilizado</label>
+                <select name="sterilized" id="sterilized" onChange={handleChange}>
+                    <option value="">Elige una opción</option>
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                </select>
             </div>
             <div>
                 <label  htmlFor='sterilizedCode'>Código de esterilización</label>
@@ -109,8 +110,8 @@ return (
                     onChange={handleChange}
                 />
             </div>
-            <div>
-                <button>Guardar información</button>
+            <div className='text-center'>
+                <button className='mt-2 border border-black rounded-lg p-1'>Guardar información</button>
             </div>
         </form>
     </div>
