@@ -1,6 +1,11 @@
 import React from 'react'
 
 function Navbar() {
+  const logOut = ()=>{
+    sessionStorage.setItem('t',"")
+    sessionStorage.setItem('n',"")
+    sessionStorage.setItem('r',"")
+}
   return (
     <div>
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -26,9 +31,22 @@ function Navbar() {
                 <li>
                   <a href="/homeless" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Sin Hogar</a>
                 </li>
-                <li>
-                  <a href="/practice" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Practice</a>
-                </li>
+                {
+                  sessionStorage.getItem('t') !== ""
+                  ?
+                  <li>
+                    <a href="/" onClick={logOut} class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Cerrar Sesión</a>
+                  </li>
+                  :
+                  <div className='flex'>
+                    <li className='mr-4'>
+                      <a href="/new-user" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Registrarme</a>
+                    </li>
+                    <li>
+                      <a href="/login" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+                    </li>
+                  </div>
+                }
               </ul>
             </div>
           </div>

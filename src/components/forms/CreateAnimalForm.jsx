@@ -1,41 +1,54 @@
 import React, { useState } from 'react'
-import { postNewAnimalBackend } from '../requests/animalRequests'
+import { postNewAnimalBackend } from '../../requests/animalRequests'
 
-function CreateAnimalForm() {
+function CreateAnimalForm(props) {
+    const characteristic = props.fatherData
+    console.log(characteristic);
     const [animal, setAnimal] = useState({
-        name: "",
-        species: "",
+        name: " ",
+        species: " ",
         breed: "criollo",
-        gender: "",
+        gender: " ",
         age: 0,
         sterilized: false,
         sterilizedCode: " ",
-        other: " ",        
+        other: " ",
+        date: " ",
+        cellphone2: " ",
+        cellphone3: " ",
+        place: " ",
+        color: " "
     })
     const [imagen, setImagen] = useState(null)
     const handleImageChange = (e) => {
+        e.preventDefault();
         setImagen(e.target.files[0]) 
     }
     const handleChange = (e) => {
         animal[e.target.name] = e.target.value
+        console.log(animal);
     }
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        console.log(animal);
         const formData = new FormData();
         const newAnimal = {
-            name: animal.name,
+            petName: animal.name,
             species: animal.species,
             breed: animal.breed,
             gender: animal.gender,
             age: animal.age,
             sterilized: animal.sterilized,
             sterilizedCode: animal.sterilizedCode,
-            other: animal.other
+            other: animal.other,
+            date: animal.date,
+            place: animal.place,
+            color: animal.color,
+            cellphones: [sessionStorage.getItem('c'),animal?.cellphone2,animal?.cellphone3]
         }
+        console.log(newAnimal);
         formData.append('bodyJson',JSON.stringify(newAnimal));
         formData.append('image',imagen);
-        await postNewAnimalBackend(formData,"perdido")
+        await postNewAnimalBackend(formData,characteristic)
             .then(answer=>{
                 console.log(answer);
             })
@@ -82,6 +95,15 @@ return (
                 </select>
             </div>
             <div>
+                <label  htmlFor='color'>Color</label>
+                <input 
+                    type='text'
+                    id='color'
+                    name='color'
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
                 <label  htmlFor='age'>Edad (años)</label>
                 <input 
                     type='number'
@@ -89,8 +111,7 @@ return (
                     name='age'
                     onChange={handleChange}
                 />
-            </div>
-            
+            </div>            
             <div>
                 <label htmlFor='sterilized'>Esterilizado</label>
                 <select name="sterilized" id="sterilized" onChange={handleChange}>
@@ -132,6 +153,28 @@ return (
                     type='text'
                     id='place'
                     name='place'
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label  htmlFor='cellphone1'>Celular</label>
+                <input 
+                    type='number'
+                    id='cellphone1'
+                    name='cellphone1'
+                    placeholder={sessionStorage.getItem('c')}
+                    disabled
+                />
+                <input 
+                    type='number'
+                    id='cellphone2'
+                    name='cellphone2'
+                    onChange={handleChange}
+                />
+                <input 
+                    type='number'
+                    id='cellphone3'
+                    name='cellphone3'
                     onChange={handleChange}
                 />
             </div>

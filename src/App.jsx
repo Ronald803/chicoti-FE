@@ -5,7 +5,8 @@ import FoundAnimalsPage from './pages/FoundAnimalsPage'
 import HomelessAnimalsPage from './pages/HomelessAnimalsPage'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Practice from './components/Practice'
+import CreateUserForm from './components/forms/CreateUserForm'
+import LoginForm from './components/forms/LoginForm'
 
 
 
@@ -15,7 +16,8 @@ const AppRoutes = () => {
     { path: '/missing',   element: <MissingAnimalsPage/>},
     { path: '/found',     element: <FoundAnimalsPage/>},
     { path: '/homeless',  element: <HomelessAnimalsPage/>},
-    { path: '/practice',  element: <Practice/>}
+    { path: '/new-user',  element: <CreateUserForm/>},
+    { path: '/login',     element: <LoginForm/>}
   ])
   return routes
 }
