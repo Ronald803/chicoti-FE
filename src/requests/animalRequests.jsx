@@ -13,3 +13,6 @@ export function postNewAnimalBackend(animalData,characteristic){
         )
     )
 }
+export function getAnimalsBackend(){
+    return axios.get(url)
+}

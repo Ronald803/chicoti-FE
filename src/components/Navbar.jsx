@@ -2,9 +2,10 @@ import React from 'react'
 
 function Navbar() {
   const logOut = ()=>{
-    sessionStorage.setItem('t',"")
-    sessionStorage.setItem('n',"")
-    sessionStorage.setItem('r',"")
+    sessionStorage.setItem('t',"");
+    sessionStorage.setItem('n',"");
+    sessionStorage.setItem('r',"");
+    sessionStorage.setItem('c',"");
 }
   return (
     <div>

@@ -1,7 +1,12 @@
-import React from 'react'
-import { loginBackendRequest } from '../../requests/userRequests'
+import React from 'react';
+import { loginBackendRequest } from '../../requests/userRequests';
+import successAlert from '../../alerts/successAlert';
+import errorAlert from '../../alerts/errorAlert';
+import { useNavigate } from 'react-router-dom';
+
 
 function LoginForm() {
+    const navigate = useNavigate();
     const user = {
         email: '',
         password: ''
@@ -13,15 +18,21 @@ function LoginForm() {
         e.preventDefault();
         loginBackendRequest(user)
             .then(answer=>{
-                sessionStorage.setItem('n',answer.data.name);
-                sessionStorage.setItem('t',answer.data.token);
-                sessionStorage.setItem('r',answer.data.rol);
-                sessionStorage.setItem('c',answer.data.cellphone);
+                sessionStorage.setItem('n',answer.data.body.name);
+                sessionStorage.setItem('t',answer.data.body.token);
+                sessionStorage.setItem('r',answer.data.body.rol);
+                sessionStorage.setItem('c',answer.data.body.cellphone);
+                successAlert('Bienvenid@ ' + answer.data.body.name)
+                setTimeout(() => {
+                    navigate('/')
+                  }, 2500);    
+            })
+            .catch(e=>{
+                errorAlert(e.response.data.error)
                 setTimeout(() => {
                     window.location.reload()  
-                  }, 2500);
+                  }, 2500);    
             })
-            .catch(e=>{console.log(e)})
     }
   return (
     <div>
