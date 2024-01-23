@@ -24,7 +24,7 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <div className='bg-red-100'>
+    <div className=''>
       <BrowserRouter>
         <Navbar/>
         <AppRoutes/>

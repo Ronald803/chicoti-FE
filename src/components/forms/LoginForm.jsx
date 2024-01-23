@@ -35,28 +35,30 @@ function LoginForm() {
             })
     }
   return (
-    <div>
+    <div className=''>
         <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor='email'>Email</label>
+            <div className='pt-2'>
+                <div><label className='' htmlFor='email'>Email</label></div>
                 <input
                     type='email'
                     id='email'
                     name='email'
                     onChange={handleChange}
+                    className='my-1 py-1 w-full rounded-lg border border-tertiary'
                 />
             </div>
-            <div>
-                <label htmlFor='password'>Contraseña</label>
+            <div className='pt-2'>
+                <div><label className='' htmlFor='password'>Contraseña</label></div>
                 <input
                     type='password'
                     id='password'
                     name='password'
                     onChange={handleChange}
+                    className='my-1 py-1 w-full rounded-lg border-tertiary border'
                 />
             </div>
-            <div>
-                <button>Iniciar Sesión</button>
+            <div className='py-2 text-center'>
+                <button className='py-1 px-8 rounded-lg bg-primary text-white'>Iniciar Sesión</button>
             </div>
         </form>
     </div>
