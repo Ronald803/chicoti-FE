@@ -38,7 +38,7 @@ function LoginForm() {
     <div className=''>
         <form onSubmit={handleSubmit}>
             <div className='pt-2'>
-                <div><label className='' htmlFor='email'>Email</label></div>
+                <div><label className='ps-2' htmlFor='email'>Email</label></div>
                 <input
                     type='email'
                     id='email'
@@ -48,7 +48,7 @@ function LoginForm() {
                 />
             </div>
             <div className='pt-2'>
-                <div><label className='' htmlFor='password'>Contraseña</label></div>
+                <div><label className='ps-2' htmlFor='password'>Contraseña</label></div>
                 <input
                     type='password'
                     id='password'
@@ -58,7 +58,7 @@ function LoginForm() {
                 />
             </div>
             <div className='py-2 text-center'>
-                <button className='py-1 px-8 rounded-lg bg-primary text-white'>Iniciar Sesión</button>
+                <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Iniciar Sesión</button>
             </div>
         </form>
     </div>

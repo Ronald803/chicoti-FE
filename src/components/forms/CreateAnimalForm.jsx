@@ -57,7 +57,7 @@ function CreateAnimalForm(props) {
             })
     }
 return (
-    <div className='px-2'>
+    <div className='p-4 '>
         <form onSubmit={handleSubmit}>
             <div className='flex'>
                 <label className='w-1/3' htmlFor='name'>Nombre</label>
@@ -66,12 +66,12 @@ return (
                     id='name'
                     name='name'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
                 <label className='w-1/3' htmlFor='species'>Especie</label>
-                <select className='w-2/3' name="species" id="species" onChange={handleChange}>
+                <select className='w-2/3 rounded-lg border border-tertiary' name="species" id="species" onChange={handleChange}>
                     <option value="">Elige una opción</option>
                     <option value="dog">Perro</option>
                     <option value="cat">Gato</option>
@@ -85,12 +85,12 @@ return (
                     id='breed'
                     name='breed'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
                 <label className='w-1/3' htmlFor='gender'>Sexo</label>
-                <select className='w-2/3' name="gender" id="gender" onChange={handleChange}>
+                <select className='w-2/3 rounded-lg border border-tertiary' name="gender" id="gender" onChange={handleChange}>
                     <option value="">Elige una opción</option>
                     <option value="machito" >machito</option>
                     <option value="hembrita">hembrita</option>
@@ -103,7 +103,7 @@ return (
                     id='color'
                     name='color'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
@@ -113,12 +113,12 @@ return (
                     id='age'
                     name='age'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>            
             <div className='flex pt-1'>
                 <label className='w-1/3' htmlFor='sterilized'>Esterilizado</label>
-                <select className='w-2/3' name="sterilized" id="sterilized" onChange={handleChange}>
+                <select className='w-2/3 rounded-lg border border-tertiary' name="sterilized" id="sterilized" onChange={handleChange}>
                     <option value="">Elige una opción</option>
                     <option value={true} >Si</option>
                     <option value={false}>No</option>
@@ -131,7 +131,7 @@ return (
                     id='sterilizedCode'
                     name='sterilizedCode'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
@@ -141,7 +141,7 @@ return (
                     id='other'
                     name='other'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
@@ -151,7 +151,7 @@ return (
                     id='date'
                     name='date'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
@@ -161,12 +161,12 @@ return (
                     id='place'
                     name='place'
                     onChange={handleChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
             <div className='flex pt-1'>
                 <label className='w-1/3' htmlFor='cellphone1'>Celular</label>
-                <div className='w-2/3'>
+                <div className='w-2/3 rounded-lg border border-tertiary'>
                     <input 
                         type='number'
                         id='cellphone1'
@@ -200,11 +200,11 @@ return (
                     name='Files'
                     accept='image/png, image/jpg'
                     onChange={handleImageChange}
-                    className='w-2/3'
+                    className='w-2/3 rounded-lg border border-tertiary'
                 />
             </div>
-            <div className='text-center'>
-                <button className='mt-2 border border-black rounded-lg p-1'>Guardar información</button>
+            <div className='text-center mt-2'>
+                <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Guardar información</button>
             </div>
         </form>
     </div>
