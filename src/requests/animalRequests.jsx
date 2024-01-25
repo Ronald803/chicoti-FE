@@ -16,3 +16,7 @@ export function postNewAnimalBackend(animalData,characteristic){
 export function getAnimalsBackend(){
     return axios.get(url)
 }
+
+export function getAnimalsToFixPhotoBackend(){
+    return axios.get(`${url}?photoUrlOfficial= &&`)
+}

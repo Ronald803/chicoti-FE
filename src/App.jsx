@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CreateUserForm from './components/forms/CreateUserForm'
 import LoginForm from './components/forms/LoginForm'
+import UrlImageFIxerPage from './pages/UrlImageFIxerPage'
 
 
 
@@ -17,7 +18,8 @@ const AppRoutes = () => {
     { path: '/found',     element: <FoundAnimalsPage/>},
     { path: '/homeless',  element: <HomelessAnimalsPage/>},
     { path: '/new-user',  element: <CreateUserForm/>},
-    { path: '/login',     element: <LoginForm/>}
+    { path: '/login',     element: <LoginForm/>},
+    { path: '/urlImage',  element: <UrlImageFIxerPage/> }
   ])
   return routes
 }
