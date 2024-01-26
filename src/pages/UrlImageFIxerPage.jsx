@@ -24,11 +24,14 @@ function UrlImageFIxerPage() {
     }
   return (
     <div>
+        <div>https://www.labnol.org/embed/google/drive/</div>
         {
             allAnimalsToFixPhoto.map(animal=>{
                 return (
-                    <div className='w-80' id={animal._id}>
-                        <FixUrlForm pet={animal}/>
+                    <div className='flex items-center justify-center'>
+                        <div className='' id={animal._id} style={{"width":"380px"}}>
+                            <FixUrlForm pet={animal}/>
+                        </div>
                     </div>
                 )
             })

@@ -20,3 +20,13 @@ export function getAnimalsBackend(){
 export function getAnimalsToFixPhotoBackend(){
     return axios.get(`${url}?photoUrlOfficial= &&`)
 }
+
+export function updateUrlPhotoBackend(petId,body){
+    return(
+        axios.put(
+            url+petId,
+            body,
+            {headers: { "xtoken": t}}
+        )
+    )
+}
