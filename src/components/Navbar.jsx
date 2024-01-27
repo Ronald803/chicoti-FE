@@ -76,13 +76,6 @@ function Navbar() {
         {
           userWindow == true && <PopUpWindow closeWindow={closePopUpWindow}/>
         }
-        {
-          !navBarCollapsed
-          &&
-          <div>
-            hola hola tarolas
-          </div>
-        }
     </div>
   )
 }
