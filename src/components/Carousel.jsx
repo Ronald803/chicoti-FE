@@ -3,9 +3,10 @@ import PopUpCardInfoPet from './PopUpCardInfoPet';
 
 function Carousel(props) {
     const [popUpWindow, setPopUpWindow] = useState(false);
-    const togglePopCard = ()=> {
+    const [choosenPet, setChoosenPet] = useState({})
+    const togglePopCard = (pet)=> {
+        setChoosenPet(pet)
         setPopUpWindow(!popUpWindow)
-        
     }
     const pets = props.petsArray;
     const title = props.title;
@@ -17,16 +18,11 @@ return (
         {
             pets?.map((pet,index)=>{
                 return (
-                    <div>
-                        {
-                            popUpWindow
-                            &&
-                            <PopUpCardInfoPet toggleCard={togglePopCard} petInfo={pets}/>
-                        }
+                    <div key={index}>
                         <div className='w-48 h-64 shadow-md rounded-lg flex-none transform transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-fourth'>
                             <div className='w-full h-5/6'><img className='w-full h-full object-cover rounded-t-lg' src={pet.photoUrlOfficial}/></div>
                             <div className='w-full h-1/6  rounded-b-lg bg-fourth pt-2'>
-                              <p onClick={togglePopCard} className='font-bold text-xl text-center bg-fourth border-y border-y-white'>{pet.petName}</p>
+                              <p onClick={()=>{togglePopCard(pet)}} className='font-bold text-xl text-center bg-fourth border-y border-y-white'>{pet.petName}</p>
                             </div>
                         </div>
                     </div>
@@ -34,6 +30,11 @@ return (
             })
         }
     </div>
+    {
+        popUpWindow
+        &&
+        <PopUpCardInfoPet toggleCard={togglePopCard} petInfo={choosenPet}/>
+    }
 </div>
     
   )
