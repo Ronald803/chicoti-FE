@@ -1,11 +1,15 @@
 import React from 'react'
 import CreateAnimalForm from '../components/forms/CreateAnimalForm'
+import Seeker from '../components/Seeker'
 
 function FoundAnimalsPage() {
   return (
     <div className=''>
         <div className='text-center pt-2 font-extrabold text-xl'>
           <h1>ENCONTRADOS</h1>
+        </div>
+        <div>
+          <Seeker characteristicPet={'encontrado'}/>
         </div>
         <div className='flex items-center justify-center'>
           <div className='m-2 border-2 border-black rounded-lg w-96 '>

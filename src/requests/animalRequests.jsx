@@ -13,8 +13,10 @@ export function postNewAnimalBackend(animalData,characteristic){
         )
     )
 }
-export function getAnimalsBackend(){
-    return axios.get(url)
+export function getAnimalsBackend(characteristic){
+    let newUrl = url;
+    if(characteristic){newUrl = newUrl + `?characteristic=${characteristic}`}
+    return axios.get(newUrl)
 }
 
 export function getAnimalsToFixPhotoBackend(){

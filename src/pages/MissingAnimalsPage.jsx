@@ -1,5 +1,6 @@
 import React from 'react'
 import CreateAnimalForm from '../components/forms/CreateAnimalForm'
+import Seeker from '../components/Seeker'
 
 function MissingAnimalsPage() {
   return (
@@ -8,7 +9,7 @@ function MissingAnimalsPage() {
           <h1>PERDIDOS</h1>
         </div>
         <div>
-          
+          <Seeker characteristicPet={'perdido'}/>
         </div>
         <div className='flex items-center justify-center'>
           <div className='m-2 border-2 border-black rounded-lg w-96'>
