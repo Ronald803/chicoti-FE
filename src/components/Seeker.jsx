@@ -5,7 +5,9 @@ import Carousel from './Carousel';
 function Seeker(props) {
     const characteristicPet = props.characteristicPet;
     let petCharacteristic = {
-      breed: ""
+      breed: "",
+      gender: "",
+      species: "",
     }
     const [allPets, setAllPets] = useState([])
     const [pets, setPets] = useState([]);
@@ -13,7 +15,7 @@ function Seeker(props) {
     const [femaleDogs, setFemaleDogs] = useState([])
     const [maleCats, setMaleCats] = useState([])
     const [femaleCats, setFemaleCats] = useState([])
-
+    const [seekWindow, setSeekWindow] = useState(false)
     useEffect(()=>{
         getSpecificPets()
     },[])
@@ -40,62 +42,73 @@ function Seeker(props) {
     }
     const handleChange = (e)=>{
       petCharacteristic[e.target.name] = e.target.value
-      console.log(petCharacteristic);
     }
     const handleSubmit = (e)=>{
       e.preventDefault();
+      console.log(petCharacteristic);
       let petsFound = [];
-      console.log(allPets);
-      allPets.map((pet)=>{
+      let petsAuxi = [];
+      if(petCharacteristic.gender="machito" && petCharacteristic.species=="perro"){petsAuxi=maleDogs}
+      if(petCharacteristic.gender="machito" && petCharacteristic.species=="gato"){petsAuxi=maleCats}
+      if(petCharacteristic.gender="hembrita" && petCharacteristic.species=="perro"){petsAuxi=femaleDogs}
+      if(petCharacteristic.gender="hembrita" && petCharacteristic.species=="gato"){petsAuxi=femaleCats}
+      petsAuxi.map((pet)=>{
         if(pet.breed === petCharacteristic.breed){
           petsFound.push(pet)
         }
       })
-      console.log(petsFound);
       setPets(petsFound)
     }
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div className='pt-2'>
-            <div><label className='ps-2' htmlFor='species'>Especie</label></div>
-            <input
-                type='species'
-                id='species'
-                name='species'
-                onChange={handleChange}
-                className='my-1 py-1 w-full rounded-lg border border-tertiary'
-            />
-          </div>
-          <div className='pt-2'>
-            <div><label className='ps-2' htmlFor='gender'>Género</label></div>
-            <input
-                type='gender'
-                id='gender'
-                name='gender'
-                onChange={handleChange}
-                className='my-1 py-1 w-full rounded-lg border border-tertiary'
-            />
-          </div>
-          <div className='pt-2'>
-            <div><label className='ps-2' htmlFor='breed'>Raza</label></div>
-            <input
-                type='breed'
-                id='breed'
-                name='breed'
-                onChange={handleChange}
-                className='my-1 py-1 w-full rounded-lg border border-tertiary'
-            />
-          </div>
-          <div className='py-2 text-center'>
-            <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Buscar</button>
-          </div>
-        </form>
+      <div className='text-center'>
+        <button onClick={()=>{setSeekWindow(!seekWindow)}} className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Busca en nuestra base de datos 🔎</button>
+      </div>
+      {
+        seekWindow
+        &&
+        <div>
+          <form onSubmit={handleSubmit}>
+            <div className='pt-2 flex'>
+              <div className='w-1/5 ps-2' ><label className='' htmlFor='species'>Especie</label></div>
+              <input
+                  type='species'
+                  id='species'
+                  name='species'
+                  onChange={handleChange}
+                  className='w-4/5 mx-2 ps-4 rounded-lg border border-tertiary'
+              />
+            </div>
+            <div className='pt-2 flex'>
+              <div className='w-1/5 ps-2'><label className='' htmlFor='gender'>Género</label></div>
+              <input
+                  type='gender'
+                  id='gender'
+                  name='gender'
+                  onChange={handleChange}
+                  className='w-4/5 mx-2 ps-4 rounded-lg border border-tertiary'
+              />
+            </div>
+            <div className='pt-2 flex'>
+              <div className='w-1/5 ps-2'><label className='w-full' htmlFor='breed'>Raza</label></div>
+              <input
+                  type='breed'
+                  id='breed'
+                  name='breed'
+                  onChange={handleChange}
+                  className='w-4/5 mx-2 ps-4 rounded-lg border border-tertiary'
+              />
+            </div>
+            <div className='py-2 text-center'>
+              <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Buscar</button>
+            </div>
+          </form>
         <div>
           <Carousel petsArray={pets} title='' link=''/>
         </div>
       </div>
+      }
+      
       <div>
         <Carousel petsArray={maleDogs} title='Perritos' link=''/>
       </div>
