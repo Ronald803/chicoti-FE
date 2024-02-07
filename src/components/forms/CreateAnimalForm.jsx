@@ -25,7 +25,7 @@ function CreateAnimalForm(props) {
         setImagen(e.target.files[0]) 
     }
     const handleChange = (e) => {
-        animal[e.target.name] = e.target.value
+        animal[e.target.name] = (e.target.value).toUpperCase()
         console.log(animal);
     }
     const handleSubmit = async (e)=>{

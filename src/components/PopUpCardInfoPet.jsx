@@ -1,4 +1,5 @@
 import React from 'react'
+import infoAlert from '../alerts/infoAlert';
 
 function PopUpCardInfoPet(props) {
     const toggleCard = props.toggleCard;
@@ -6,6 +7,9 @@ function PopUpCardInfoPet(props) {
     const closePopUpCard = ()=>{
         console.log(petInfo);
         toggleCard()
+    }
+    const buttonAction = (e)=>{
+        infoAlert("Estás seguro.....?")
     }
   return (
     <div>
@@ -39,17 +43,17 @@ function PopUpCardInfoPet(props) {
                         {
                             petInfo.characteristic == "perdido"
                             &&
-                            <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Lo encontré</button>
+                            <button onClick={()=>{buttonAction()}} className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Lo encontré</button>
                         }
                         {
                             petInfo.characteristic == "encontrado"
                             &&
-                            <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Conozco su hogar</button>
+                            <button onClick={()=>{buttonAction()}} className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Conozco su hogar</button>
                         }
                         {
                             petInfo.characteristic == "sin-hogar"
                             &&
-                            <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Quiero adoptarlo</button>
+                            <button onClick={()=>{buttonAction()}} className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Quiero adoptarlo</button>
                         }
                     </div>
                 </div>

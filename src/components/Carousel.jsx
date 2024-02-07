@@ -11,9 +11,18 @@ function Carousel(props) {
     const pets = props.petsArray;
     const title = props.title;
     const link = props.link;
+    
 return (
 <div className='mt-2 px-4'>
-    <div className='text-2xl font-bold text-center tracking-wide text-white bg-tertiary border-2 border-white py-1 rounded-t-lg hover:bg-fourth hover:text-black'><a href={link}>{title}</a></div>
+    <div className='text-2xl font-bold text-center tracking-wide text-white bg-tertiary border-2 border-white py-1 rounded-t-lg hover:bg-fourth hover:text-black'>
+        {
+            link == ""
+            ?
+            <div>{title}</div>
+            :
+            <a href={link}>{title}</a>
+        }        
+    </div>
     <div className='w-auto h-72 items-center overflow-x-auto overscroll-x-contain flex space-x-4 border-4 border-t-secondary px-1'>
         {
             pets?.map((pet,index)=>{

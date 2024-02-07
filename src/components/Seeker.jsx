@@ -91,10 +91,10 @@ function Seeker(props) {
       {
         seekWindow
         &&
-        <div className='bg-primary py-1'>
+        <div className='bg-primary py-1' >
           {
             !seekResults ?
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='w-96 m-auto'>
               <div className='pt-2 flex'>
                 <div className='w-1/5 ps-2 text-white' ><label className='' htmlFor='species'>Especie</label></div>
                 <input
