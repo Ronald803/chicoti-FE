@@ -9,7 +9,7 @@ function PopUpCardInfoPet(props) {
         toggleCard()
     }
     const buttonAction = (e)=>{
-        infoAlert("Estás seguro.....?")
+        infoAlert("Confirmación","Estás seguro?")
     }
   return (
     <div>

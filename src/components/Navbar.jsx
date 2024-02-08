@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PopUpWindow from './PopUpWindow';
+import infoAlert from '../alerts/infoAlert';
 
 function Navbar() {
+  useEffect(()=>{
+    let first = sessionStorage.getItem("first")
+    if(first!="true"){
+      infoAlert("Información","Te sugerimos que inicies sesión o te crees una cuenta, es fácil te tomará unos segundos");
+      sessionStorage.setItem("first","true");
+    }
+
+  },[])
+  
   const [userWindow, setUserWindow] = useState(false);
   let aux = false;
   const [navBarCollapsed, setNavBarCollapsed] = useState("hidden w-full md:block md:w-auto")
