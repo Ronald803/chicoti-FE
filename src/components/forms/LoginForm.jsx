@@ -5,7 +5,8 @@ import errorAlert from '../../alerts/errorAlert';
 import { useNavigate } from 'react-router-dom';
 
 
-function LoginForm() {
+function LoginForm(props) {
+    const closePopWindow = props.closePopWindow
     const navigate = useNavigate();
     const user = {
         email: '',
@@ -24,6 +25,7 @@ function LoginForm() {
                 sessionStorage.setItem('c',answer.data.body.cellphone);
                 successAlert('Bienvenid@ ' + answer.data.body.name)
                 setTimeout(() => {
+                    closePopWindow();
                     navigate('/')
                   }, 2500);    
             })
@@ -44,7 +46,7 @@ function LoginForm() {
                     id='email'
                     name='email'
                     onChange={handleChange}
-                    className='my-1 py-1 w-full rounded-lg border border-tertiary'
+                    className='my-1 p-1 w-full rounded-lg border border-tertiary'
                 />
             </div>
             <div className='pt-2'>
@@ -54,7 +56,7 @@ function LoginForm() {
                     id='password'
                     name='password'
                     onChange={handleChange}
-                    className='my-1 py-1 w-full rounded-lg border-tertiary border'
+                    className='my-1 p-1 w-full rounded-lg border-tertiary border'
                 />
             </div>
             <div className='py-2 text-center'>

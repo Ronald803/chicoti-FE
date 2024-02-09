@@ -20,7 +20,7 @@ function PopUpWindow(props) {
                 <CreateUserForm/>
                 :
                 <div>
-                    <LoginForm/>
+                    <LoginForm closePopWindow={closeWindow}/>
                     <hr className='py-1'/>
                     <div className='text-center'>
                         <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black' onClick={clickCreateAccount}>Crear Cuenta</button>

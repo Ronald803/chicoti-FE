@@ -9,8 +9,9 @@ function Navbar() {
     if(first!="true"){
       infoAlert("Información","Te sugerimos que inicies sesión o te crees una cuenta, es fácil te tomará unos segundos");
       sessionStorage.setItem("first","true");
+      sessionStorage.setItem('t',"");
     }
-
+    console.log(sessionStorage.getItem('t'));
   },[])
   
   const [userWindow, setUserWindow] = useState(false);
@@ -67,17 +68,17 @@ function Navbar() {
                   </li>
                 }
                 {
-                  sessionStorage.getItem('t') !== ""
+                  sessionStorage.getItem('t') == ""
                   ?
-                  <li>
-                    <a href="/" onClick={logOut} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Cerrar Sesión</a>
-                  </li>
-                  :
                   <div className='flex'>
                     <li>
                       <button onClick={openPopUpWindow} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Iniciar Sesión</button>
                     </li>    
                   </div>
+                  :
+                  <li>
+                    <a href="/" onClick={logOut} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Cerrar Sesión</a>
+                  </li>
                 }
               </ul>
             </div>

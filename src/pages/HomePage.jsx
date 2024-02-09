@@ -33,17 +33,12 @@ function HomePage() {
         })
       .catch(e=>{console.log(e);})
   }
-  const handleChange = ()=>{
-    console.log(perdidos);
-    console.log(encontrados);
-    console.log(sinHogar);
-  }
+  
   return (
     <div>
       <Carousel petsArray={perdidos} title='Perdidos' link='/missing'/>
       <Carousel petsArray={encontrados} title='Encontrados' link='/found'/>
       <Carousel petsArray={sinHogar} title='Sin Hogar' link='/homeless'/>
-      <button onClick={handleChange}>Imprimir</button>
     </div>
   )
 }
