@@ -9,13 +9,14 @@ export default {
   theme: {
     colors:{
       ...colors,
-      "primary": "#020122",
-      "secondary": "#1411A4",
-      "tertiary": "#312DF2",
-      "fourth": "#7270E4"
+      "primary": "#FA1E8A",
+      "secondary": "#D10067",
+      "tertiary": "#F760AA",
+      "fourth": "#F9BEDB"
       },
       fontFamily: { 
-        Montserrat: ["Montserrat", "sans-serif"],
+        //Montserrat: ["Montserrat", "sans-serif"],
+        playwriteGBS: ['"Playwrite GB S"', 'sans-serif'],
       },
     extend: {},
   },

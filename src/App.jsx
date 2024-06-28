@@ -8,6 +8,8 @@ import Footer from './components/Footer'
 import CreateUserForm from './components/forms/CreateUserForm'
 import LoginForm from './components/forms/LoginForm'
 import UrlImageFIxerPage from './pages/UrlImageFIxerPage'
+import NavBar from './components/organisms/NavBar'
+import FooterComponent from './components/organisms/FooterComponent'
 
 
 
@@ -26,11 +28,19 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <div className=''>
+    <div className='font-playwriteGBS'>
       <BrowserRouter>
-        <Navbar/>
-        <AppRoutes/>
-        <Footer/>
+        <div className='flex flex-col max-h-screen'>
+          <div className='flex-none'>
+            <NavBar/>
+          </div>
+          <div className='flex-grow overflow-y-auto'>
+            <AppRoutes/>
+          </div>
+          <div className='flex-none'>
+            <FooterComponent/>
+          </div>
+        </div>
       </BrowserRouter>
     </div>
   )
