@@ -6,7 +6,7 @@ function FooterComponent() {
   const closePopUpWindow = () => {setIsUserWindowOpen(false)}
   const openPopUpWindow = () => {setIsUserWindowOpen(!isUserWindowOpen)}
   return (
-    <div className='bg-primary'>
+    <div className='bg-primary py-1'>
       {
         isUserWindowOpen && <PopUpWindow closeWindow={closePopUpWindow}/>
       }

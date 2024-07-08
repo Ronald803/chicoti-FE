@@ -1,5 +1,7 @@
 import React from 'react'
 import { postNewUserBackend } from '../../requests/userRequests'
+import successAlert from '../../alerts/successAlert'
+import errorAlert from '../../alerts/errorAlert'
 
 function CreateUserForm() {
     const newUser = {
@@ -19,8 +21,18 @@ function CreateUserForm() {
                 sessionStorage.setItem('n',answer.data.name);
                 sessionStorage.setItem('t',answer.data.token);
                 sessionStorage.setItem('r',answer.data.rol);
+                successAlert('Bienvenid@ ' + answer.data.body.name)
+                setTimeout(() => {
+                    closePopWindow();
+                    navigate('/')
+                }, 2500);
             })
-            .catch(e=>{console.log(e)})
+            .catch(e=>{
+                errorAlert(e.response.data.error)
+                setTimeout(() => {
+                    window.location.reload()  
+                }, 2500);
+            })
     }
   return (
     <div>
