@@ -10,8 +10,8 @@ import LoginForm from './components/forms/LoginForm'
 import UrlImageFIxerPage from './pages/UrlImageFIxerPage'
 import NavBar from './components/organisms/NavBar'
 import FooterComponent from './components/organisms/FooterComponent'
-
-
+import { GeneralProvider } from './modules/context/GeneralProvider'
+import BodyComponent from './components/pages/BodyComponent'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -29,19 +29,21 @@ const AppRoutes = () => {
 function App() {
   return (
     <div className='font-playwriteGBS'>
-      <BrowserRouter>
-        <div className='flex flex-col max-h-screen'>
-          <div className='flex-none'>
-            <NavBar/>
+      <GeneralProvider>
+        <BrowserRouter>
+          <div className='flex flex-col max-h-screen'>
+            <div className='flex-none'>
+              <NavBar/>
+            </div>
+            <div className='flex-grow overflow-y-auto'>
+              <BodyComponent/>
+            </div>
+            <div className='flex-none'>
+              <FooterComponent/>
+            </div>
           </div>
-          <div className='flex-grow overflow-y-auto'>
-            <AppRoutes/>
-          </div>
-          <div className='flex-none'>
-            <FooterComponent/>
-          </div>
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+      </GeneralProvider>
     </div>
   )
 }

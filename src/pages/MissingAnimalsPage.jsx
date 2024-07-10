@@ -5,9 +5,6 @@ import Seeker from '../components/Seeker'
 function MissingAnimalsPage() {
   return (
     <div>
-        <div className='text-center pt-2 font-extrabold text-xl'>
-          <h1>PERDIDOS</h1>
-        </div>
         <div>
           <Seeker characteristicPet={'perdido'}/>
         </div>

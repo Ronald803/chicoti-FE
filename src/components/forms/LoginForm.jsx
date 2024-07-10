@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { loginBackendRequest } from '../../requests/userRequests';
 import successAlert from '../../alerts/successAlert';
 import errorAlert from '../../alerts/errorAlert';
 import { useNavigate } from 'react-router-dom';
+import { GeneralContext } from '../../modules/context/GeneralContext';
 
 
 function LoginForm(props) {
+    const {setIsLogged,setUserName} = useContext(GeneralContext)
     const closePopWindow = props.closePopWindow
     const navigate = useNavigate();
     const user = {
@@ -24,6 +26,8 @@ function LoginForm(props) {
                 sessionStorage.setItem('r',answer.data.body.rol);
                 sessionStorage.setItem('c',answer.data.body.cellphone);
                 successAlert('Bienvenid@ ' + answer.data.body.name)
+                setIsLogged(true)
+                setUserName(answer.data.body.name)
                 setTimeout(() => {
                     closePopWindow();
                     navigate('/')

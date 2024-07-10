@@ -5,9 +5,6 @@ import Seeker from '../components/Seeker'
 function HomelessAnimalsPage() {
   return (
     <div>
-      <div className='text-center pt-2 font-extrabold text-xl'>
-          <h1>SIN HOGAR</h1>
-        </div>
         <div>
           <Seeker characteristicPet={'sin-hogar'}/>
         </div>

@@ -85,6 +85,18 @@ function Seeker(props) {
     }
   return (
     <div className=''>
+      <div>
+        <Carousel petsArray={maleDogs} title='Perritos' link=''/>
+      </div>
+      <div>
+        <Carousel petsArray={femaleDogs} title='Perritas' link=''/>
+      </div>
+      <div>
+        <Carousel petsArray={maleCats} title='Gatitos' link=''/>
+      </div>
+      <div>
+        <Carousel petsArray={femaleCats} title='Gatitas' link=''/>
+      </div>
       <div className='text-center bg-primary py-2'>
         <button onClick={()=>{setSeekWindow(!seekWindow)}} className='py-1 px-8 rounded-lg hover:bg-primary hover:text-white bg-fourth text-black border '>Busca en nuestra base de datos 🔎</button>
       </div>
@@ -139,19 +151,6 @@ function Seeker(props) {
           }          
         </div>
       }
-      
-      <div>
-        <Carousel petsArray={maleDogs} title='Perritos' link=''/>
-      </div>
-      <div>
-        <Carousel petsArray={femaleDogs} title='Perritas' link=''/>
-      </div>
-      <div>
-        <Carousel petsArray={maleCats} title='Gatitos' link=''/>
-      </div>
-      <div>
-        <Carousel petsArray={femaleCats} title='Gatitas' link=''/>
-      </div>
     </div>
   )
 }
