@@ -6,6 +6,7 @@ function NavBar() {
 	const handleChangeBody = (tag) => {
 		setBodyTag(tag)
 	}
+	const choosenTagStyle = "bg-tertiary text-gray-800 px-1 "
   return (
     <div className='w-full'>
 			<div className='flex flex-row justify-center'>
@@ -15,19 +16,19 @@ function NavBar() {
 					</a>
 				</div>
 			</div>
-			<div className='flex flex-row bg-primary py-1'>
+			<div className='flex flex-row bg-primary text-xs py-1'>
 				<div className='w-1/3 text-center text-white'>
-					<button className={bodyTag=="perdidos"?"text-black":""} onClick={()=>handleChangeBody("perdidos")}>
+					<button className={bodyTag=="perdidos"?choosenTagStyle:""} onClick={()=>handleChangeBody("perdidos")}>
 						Perdidos
 					</button>
 				</div>
 				<div className='w-1/3 text-center text-white'>
-					<button className={bodyTag=="encontrados"?"text-black":""} onClick={()=>handleChangeBody("encontrados")}>
+					<button className={bodyTag=="encontrados"?choosenTagStyle:""} onClick={()=>handleChangeBody("encontrados")}>
 						Encontrados
 					</button>
 				</div>
 				<div className='w-1/3 text-center text-white'>
-					<button className={bodyTag=="sinHogar"?"text-black":""} onClick={()=>handleChangeBody("sinHogar")}>
+					<button className={bodyTag=="sinHogar"?choosenTagStyle:""} onClick={()=>handleChangeBody("sinHogar")}>
 						Sin Hogar
 					</button>
 				</div>

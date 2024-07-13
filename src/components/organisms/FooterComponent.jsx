@@ -10,7 +10,7 @@ function FooterComponent() {
       {
         isUserWindowOpen && <PopUpWindow closeWindow={closePopUpWindow}/>
       }
-      <div className='flex flex-row'>
+      <div className='flex flex-row pb-1'>
         <div className='w-1/2 text-center'>
           <button>🔎</button>
         </div>
@@ -18,6 +18,8 @@ function FooterComponent() {
           <button onClick={openPopUpWindow}>👤</button>
         </div>
       </div>
+      <hr/>
+      <div className='text-white text-center text-xs'>trata a los animales como te gustaría ser tratado</div>
     </div>
   )
 }

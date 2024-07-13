@@ -85,7 +85,7 @@ function Seeker(props) {
     }
   return (
     <div className=''>
-      <div>
+      {/* <div>
         <Carousel petsArray={maleDogs} title='Perritos' link=''/>
       </div>
       <div>
@@ -96,6 +96,9 @@ function Seeker(props) {
       </div>
       <div>
         <Carousel petsArray={femaleCats} title='Gatitas' link=''/>
+      </div> */}
+      <div>
+        <Carousel petsArray={allPets} title='os' link=''/>
       </div>
       <div className='text-center bg-primary py-2'>
         <button onClick={()=>{setSeekWindow(!seekWindow)}} className='py-1 px-8 rounded-lg hover:bg-primary hover:text-white bg-fourth text-black border '>Busca en nuestra base de datos 🔎</button>
