@@ -5,12 +5,16 @@ export const GeneralProvider = ({children}) => {
     const [isLogged, setIsLogged] = useState(false)
     const [userName, setUserName] = useState("")
     const [bodyTag, setBodyTag] = useState("perdidos")
+    const [isAnimalChoosen, setIsAnimalChoosen] = useState(false)
+    const [animalChoosen, setAnimalChoosen] = useState(null)
     return (
         <GeneralContext.Provider
             value={{
                 isLogged,setIsLogged,
                 userName,setUserName,
-                bodyTag, setBodyTag
+                bodyTag, setBodyTag,
+                isAnimalChoosen, setIsAnimalChoosen,
+                animalChoosen, setAnimalChoosen
             }}
         >
             {children}

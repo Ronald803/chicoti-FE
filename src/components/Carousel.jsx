@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import PopUpCardInfoPet from './PopUpCardInfoPet';
+import { GeneralContext } from '../modules/context/GeneralContext';
 
 function Carousel(props) {
     const [popUpWindow, setPopUpWindow] = useState(false);
     const [choosenPet, setChoosenPet] = useState({})
+    const {setIsAnimalChoosen,setAnimalChoosen} = useContext(GeneralContext)
     const togglePopCard = (pet)=> {
-        setChoosenPet(pet)
-        setPopUpWindow(!popUpWindow)
+        setIsAnimalChoosen(true)
+        setAnimalChoosen(pet)
+        //setChoosenPet(pet)
+        //setPopUpWindow(!popUpWindow)
     }
     const pets = props.petsArray;
     const title = props.title;
@@ -33,11 +37,11 @@ return (
             })
         }
     </div>
-    {
+    {/* {
         popUpWindow
         &&
         <PopUpCardInfoPet toggleCard={togglePopCard} petInfo={choosenPet}/>
-    }
+    } */}
 </div>
     
   )

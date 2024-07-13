@@ -19,7 +19,7 @@ function FooterComponent() {
         </div>
       </div>
       <hr/>
-      <div className='text-white text-center text-xs'>trata a los animales como te gustaría ser tratado</div>
+      <div className='text-white text-center text-sm'>trata a los animales como te gustaría ser tratado</div>
     </div>
   )
 }
