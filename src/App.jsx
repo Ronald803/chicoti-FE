@@ -12,13 +12,18 @@ import NavBar from './components/organisms/NavBar'
 import FooterComponent from './components/organisms/FooterComponent'
 import { GeneralProvider } from './modules/context/GeneralProvider'
 import BodyComponent from './components/pages/BodyComponent'
+import UserPage from './pages/UserPage'
+import SearchPage from './pages/SearchPage'
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: '/',          element: <HomePage/>},
+    { path: '/',          element: <MissingAnimalsPage/>},
     { path: '/missing',   element: <MissingAnimalsPage/>},
     { path: '/found',     element: <FoundAnimalsPage/>},
     { path: '/homeless',  element: <HomelessAnimalsPage/>},
+    { path: '/user',      element: <UserPage/>},
+    { path: '/search',    element: <SearchPage/>},
+
     { path: '/new-user',  element: <CreateUserForm/>},
     { path: '/login',     element: <LoginForm/>},
     { path: '/urlImage',  element: <UrlImageFIxerPage/> }
@@ -36,7 +41,7 @@ function App() {
               <NavBar/>
             </div>
             <div className='flex-grow overflow-y-auto'>
-              <BodyComponent/>
+              <AppRoutes/>
             </div>
             <div className='flex-none'>
               <FooterComponent/>

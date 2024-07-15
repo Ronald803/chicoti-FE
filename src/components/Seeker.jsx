@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAnimalsBackend } from '../requests/animalRequests';
-import Carousel from './Carousel';
+import Carousel from './organisms/Carousel';
+import SearchForm from './organisms/SearchForm';
 
 function Seeker(props) {
     const characteristicPet = props.characteristicPet;
@@ -14,9 +15,7 @@ function Seeker(props) {
     const [maleDogs, setMaleDogs] = useState([])
     const [femaleDogs, setFemaleDogs] = useState([])
     const [maleCats, setMaleCats] = useState([])
-    const [femaleCats, setFemaleCats] = useState([])
-    const [seekWindow, setSeekWindow] = useState(false)
-    
+    const [femaleCats, setFemaleCats] = useState([])    
     const [seekResults, setSeekResults] = useState(false)
     
     useEffect(()=>{
@@ -84,76 +83,24 @@ function Seeker(props) {
       setSeekResults(true)
     }
   return (
-    <div className=''>
-      {/* <div>
-        <Carousel petsArray={maleDogs} title='Perritos' link=''/>
+    <div className='py-2'>
+      <div className='text-center pb-2'>
+      Busca en nuestra base de datos 🔎
       </div>
-      <div>
-        <Carousel petsArray={femaleDogs} title='Perritas' link=''/>
-      </div>
-      <div>
-        <Carousel petsArray={maleCats} title='Gatitos' link=''/>
-      </div>
-      <div>
-        <Carousel petsArray={femaleCats} title='Gatitas' link=''/>
-      </div> */}
-      <div>
-        <Carousel petsArray={allPets} title='os' link=''/>
-      </div>
-      <div className='text-center bg-primary py-2'>
-        <button onClick={()=>{setSeekWindow(!seekWindow)}} className='py-1 px-8 rounded-lg hover:bg-primary hover:text-white bg-fourth text-black border '>Busca en nuestra base de datos 🔎</button>
-      </div>
-      {
-        seekWindow
-        &&
-        <div className='bg-primary py-1' >
-          {
-            !seekResults ?
-            <form onSubmit={handleSubmit} className='w-96 m-auto'>
-              <div className='pt-2 flex'>
-                <div className='w-1/5 ps-2 text-white' ><label className='' htmlFor='species'>Especie</label></div>
-                <input
-                    type='species'
-                    id='species'
-                    name='species'
-                    onChange={handleChange}
-                    className='w-4/5 mx-2 ps-4 rounded-lg border border-tertiary'
-                />
-              </div>
-              <div className='pt-2 flex'>
-                <div className='w-1/5 ps-2 text-white'><label className='' htmlFor='gender'>Género</label></div>
-                <input
-                    type='gender'
-                    id='gender'
-                    name='gender'
-                    onChange={handleChange}
-                    className='w-4/5 mx-2 ps-4 rounded-lg border border-tertiary'
-                />
-              </div>
-              <div className='pt-2 flex'>
-                <div className='w-1/5 ps-2 text-white'><label className='w-full' htmlFor='breed'>Raza</label></div>
-                <input
-                    type='breed'
-                    id='breed'
-                    name='breed'
-                    onChange={handleChange}
-                    className='w-4/5 mx-2 ps-4 rounded-lg border border-tertiary'
-                />
-              </div>
-              <div className='py-2 text-center'>
-                <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black border'>Buscar</button>
-              </div>
-            </form>
-            :
-            <div className=''>
-              <Carousel petsArray={pets} title='Resultados de busqueda' link=''/>
-              <div className='py-2 text-center'>
-                <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black border' onClick={()=>{setSeekResults(false)}}>Nueva Busqueda</button>
-              </div>
+      <div className='bg-primary py-1' >
+        {
+          !seekResults 
+          ?
+          <SearchForm handleSubmit={handleSubmit} handleChange={handleChange} />
+          :
+          <div className=''>
+            <Carousel petsArray={pets} title='Resultados de busqueda' link=''/>
+            <div className='py-2 text-center'>
+              <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black border' onClick={()=>{setSeekResults(false)}}>Nueva Busqueda</button>
             </div>
-          }          
-        </div>
-      }
+          </div>
+        }          
+      </div>
     </div>
   )
 }

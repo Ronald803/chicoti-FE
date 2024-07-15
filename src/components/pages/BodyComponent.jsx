@@ -6,34 +6,30 @@ import HomelessAnimalsPage from '../../pages/HomelessAnimalsPage'
 import CardInfoPet from '../organisms/CardInfoPet'
 
 function BodyComponent() {
-    const { bodyTag,isAnimalChoosen } = useContext(GeneralContext)
+    const { bodyTag,isAnimalChoosen,currentPage } = useContext(GeneralContext)
     return (
     <div>
-        {
-            isAnimalChoosen
-            ?
+        { 
+            currentPage == "Home" 
+            && 
             <div>
-                <CardInfoPet/>
-            </div>
-            :
-            <div>
-            {
-                bodyTag == "perdidos"
-                &&
-                <MissingAnimalsPage/>
-            }
-            {
-                bodyTag == "encontrados"
-                &&
-                <FoundAnimalsPage/>
-            }
-            {
-                bodyTag == "sinHogar"
-                &&
-                <HomelessAnimalsPage/>
-            }
+                { bodyTag == "perdidos" && <MissingAnimalsPage/> }
+                { bodyTag == "encontrados" && <FoundAnimalsPage/> }
+                { bodyTag == "sinHogar" && <HomelessAnimalsPage/> }
             </div>
         }
+        { currentPage == "AnimalInfo" && <CardInfoPet/> }
+        {/* {
+            isAnimalChoosen 
+            ?
+            <CardInfoPet/>
+            :
+            <div>
+                { bodyTag == "perdidos" && <MissingAnimalsPage/> }
+                { bodyTag == "encontrados" && <FoundAnimalsPage/> }
+                { bodyTag == "sinHogar" && <HomelessAnimalsPage/> }
+            </div>
+        } */}
     </div>
   )
 }

@@ -16,7 +16,7 @@ function PopUpWindow(props) {
         closeWindow()
     }
   return (
-    <div className='flex items-center justify-center fixed top-0 left-0 z-50 w-screen h-screen'>
+    <div className=''>
         <div className='m-4  w-80 rounded-lg '>
             <div className='p-3 rounded-t-lg text-end bg-tertiary'>
                 <button onClick={closeWindow} className=' bg-primary py-1 px-3 rounded-lg text-white hover:bg-fourth hover:text-black'>X</button>

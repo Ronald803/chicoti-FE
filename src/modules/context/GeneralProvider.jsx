@@ -7,6 +7,7 @@ export const GeneralProvider = ({children}) => {
     const [bodyTag, setBodyTag] = useState("perdidos")
     const [isAnimalChoosen, setIsAnimalChoosen] = useState(false)
     const [animalChoosen, setAnimalChoosen] = useState(null)
+    const [currentPage, setCurrentPage] = useState("Home")
     return (
         <GeneralContext.Provider
             value={{
@@ -14,7 +15,8 @@ export const GeneralProvider = ({children}) => {
                 userName,setUserName,
                 bodyTag, setBodyTag,
                 isAnimalChoosen, setIsAnimalChoosen,
-                animalChoosen, setAnimalChoosen
+                animalChoosen, setAnimalChoosen,
+                currentPage, setCurrentPage
             }}
         >
             {children}

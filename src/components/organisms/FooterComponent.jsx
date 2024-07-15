@@ -1,25 +1,20 @@
-import React, { useState } from 'react'
-import PopUpWindow from '../PopUpWindow'
+import React from 'react'
 
 function FooterComponent() {
-  const [isUserWindowOpen, setIsUserWindowOpen] = useState(false)
-  const closePopUpWindow = () => {setIsUserWindowOpen(false)}
-  const openPopUpWindow = () => {setIsUserWindowOpen(!isUserWindowOpen)}
   return (
     <div className='bg-primary py-1'>
-      {
-        isUserWindowOpen && <PopUpWindow closeWindow={closePopUpWindow}/>
-      }
-      <div className='flex flex-row pb-1'>
+      <div className='flex flex-row pt-1 pb-2'>
         <div className='w-1/2 text-center'>
-          <button>🔎</button>
+          <a href='/search'>🔎</a>
         </div>
         <div className='w-1/2 text-center'>
-          <button onClick={openPopUpWindow}>👤</button>
+          <a href='/user'>👤</a>
         </div>
       </div>
       <hr/>
-      <div className='text-white text-center text-sm'>trata a los animales como te gustaría ser tratado</div>
+      <div className='text-white text-center text-sm py-1'>
+        El amor no se puede comprar pero si se puede adoptar...
+      </div>
     </div>
   )
 }

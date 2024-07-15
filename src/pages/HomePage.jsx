@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAnimalsBackend } from '../requests/animalRequests'
-import Carousel from '../components/Carousel'
+import Carousel from '../components/organisms/Carousel'
 
 function HomePage() {
   const [perdidos, setPerdidos] = useState([])
