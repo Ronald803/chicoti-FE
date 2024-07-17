@@ -14,6 +14,7 @@ import { GeneralProvider } from './modules/context/GeneralProvider'
 import BodyComponent from './components/pages/BodyComponent'
 import UserPage from './pages/UserPage'
 import SearchPage from './pages/SearchPage'
+import AboutUs from './pages/AboutUs'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -23,6 +24,7 @@ const AppRoutes = () => {
     { path: '/homeless',  element: <HomelessAnimalsPage/>},
     { path: '/user',      element: <UserPage/>},
     { path: '/search',    element: <SearchPage/>},
+    { path: '/aboutus',   element: <AboutUs/>},
 
     { path: '/new-user',  element: <CreateUserForm/>},
     { path: '/login',     element: <LoginForm/>},
@@ -36,11 +38,11 @@ function App() {
     <div className='font-playwriteGBS'>
       <GeneralProvider>
         <BrowserRouter>
-          <div className='flex flex-col max-h-screen'>
+          <div className='flex flex-col h-screen'>
             <div className='flex-none'>
               <NavBar/>
             </div>
-            <div className='flex-grow overflow-y-auto'>
+            <div className='flex-grow overflow-y-auto flex items-center'>
               <AppRoutes/>
             </div>
             <div className='flex-none'>

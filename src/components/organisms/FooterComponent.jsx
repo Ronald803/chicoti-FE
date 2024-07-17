@@ -1,18 +1,26 @@
 import React from 'react'
+import OptionsBar from '../molecules/OptionsBar'
 
 function FooterComponent() {
+  const options = [
+    {
+      optionName: "Buscar 🔎",
+      optionPath: "/search"
+    },
+    {
+      optionName: "Mi cuenta 👤",
+      optionPath: "/user"
+    },
+    {
+      optionName: "Nosotros",
+      optionPath: "/aboutus"
+    }
+  ]
   return (
-    <div className='bg-primary py-1'>
-      <div className='flex flex-row pt-1 pb-2'>
-        <div className='w-1/2 text-center'>
-          <a href='/search'>🔎</a>
-        </div>
-        <div className='w-1/2 text-center'>
-          <a href='/user'>👤</a>
-        </div>
-      </div>
-      <hr/>
-      <div className='text-white text-center text-sm py-1'>
+    <div className=''>
+      <OptionsBar options={options}  />
+      <hr className='pt-1'/>
+      <div className= 'bg-primary text-white text-center text-sm py-5'>
         El amor no se puede comprar pero si se puede adoptar...
       </div>
     </div>

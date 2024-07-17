@@ -10,19 +10,19 @@ function Carousel(props) {
     }
     const pets = props.petsArray;
 return (
-<div className='mt-1 px-1'>
-    <div className=' h-72 items-center overflow-x-auto overscroll-x-contain flex space-x-2 border-4 border-t-secondary px-1'>
+<div className='px-1'>
+    <div className=' items-center overflow-x-auto overscroll-x-contain flex space-x-2 px-1'>
         {
             pets?.map((pet,index)=>{
                 return (
-                    <div key={index} className='relative h-64 w-48 text-center' onClick={()=>{togglePopCard(pet)}}>
-                        <div className='w-48 h-full'>
+                    <div key={index} className=' w-48 text-center' onClick={()=>{togglePopCard(pet)}}>
+                        <div className='w-48 h-64 flex justify-center'>
                             <img 
                                 className='h-full object-cover rounded-t-lg' 
                                 src={pet.photoUrlOfficial}
                             />
                         </div>
-                        <div className='absolute bottom-0 w-auto text-center bg-primary text-white text-xs p-1'>
+                        <div className=' w-auto text-center bg-primary text-white text-xs py-2'>
                             {pet.petName}
                         </div>
                     </div>

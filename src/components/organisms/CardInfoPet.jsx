@@ -8,14 +8,15 @@ function CardInfoPet() {
         setIsAnimalChoosen(false)
     }
     return (
-    <div className=' w-full rounded-lg relative py-1'>
-        <div className='absolute top-3 left-3  text-white text-sm'>
+<div className='h-80 w-full rounded-lg relative py-1'>
+  <div>
+  <div className='absolute top-3 left-3  text-white text-sm'>
             <button onClick={goBack} className='fixed bg-primary py-1 px-2 rounded-md'>Atrás</button>
         </div>
         <div className='absolute top-3 right-0 bg-fourth px-4 text-primary rounded-l-md text-sm py-1'>
             <p className=''>{animalChoosen.petName}</p>
         </div>
-        <div className='w-auto h-auto'>
+        <div className='w-auto'>
             <img 
                 className='w-full h-full object-cover rounded-t-lg' 
                 src={animalChoosen.photoUrlOfficial}
@@ -59,7 +60,8 @@ function CardInfoPet() {
                 </div>
             </div>
         </div>
-    </div>
+  </div>
+</div>
   )
 }
 
