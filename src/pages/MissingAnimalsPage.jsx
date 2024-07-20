@@ -3,6 +3,7 @@ import { getAnimalsBackend } from '../requests/animalRequests'
 import Carousel from '../components/organisms/Carousel'
 import { GeneralContext } from '../modules/context/GeneralContext'
 import CardInfoPet from '../components/organisms/CardInfoPet'
+import Gallery from '../components/organisms/Gallery'
 
 function MissingAnimalsPage() {
   const {isAnimalChoosen} = useContext(GeneralContext)
@@ -21,7 +22,10 @@ function MissingAnimalsPage() {
         ?
         <CardInfoPet/>
         :
-        <Carousel petsArray={allMissingAnimals}/>
+        <div>
+          {/* <Carousel petsArray={allMissingAnimals}/> */}
+          <Gallery petsArray={allMissingAnimals}/>
+        </div>
       }
     </div>
   )

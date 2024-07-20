@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GeneralContext } from '../../modules/context/GeneralContext';
+import SinglePetCard from '../molecules/SinglePetCard';
 
 function Carousel(props) {
     const {setIsAnimalChoosen,setAnimalChoosen,setCurrentPage} = useContext(GeneralContext)
@@ -15,17 +16,7 @@ return (
         {
             pets?.map((pet,index)=>{
                 return (
-                    <div key={index} className=' w-48 text-center' onClick={()=>{togglePopCard(pet)}}>
-                        <div className='w-48 h-64 flex justify-center'>
-                            <img 
-                                className='h-full object-cover rounded-t-lg' 
-                                src={pet.photoUrlOfficial}
-                            />
-                        </div>
-                        <div className=' w-auto text-center bg-primary text-white text-xs py-2'>
-                            {pet.petName}
-                        </div>
-                    </div>
+                    <SinglePetCard key={index} togglePopCard={togglePopCard} pet={pet} />
                 )
             })
         }

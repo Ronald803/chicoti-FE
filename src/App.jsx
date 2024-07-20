@@ -42,7 +42,7 @@ function App() {
             <div className='flex-none'>
               <NavBar/>
             </div>
-            <div className='flex-grow overflow-y-auto flex items-center'>
+            <div className='flex-grow overflow-y-auto'>
               <AppRoutes/>
             </div>
             <div className='flex-none'>
