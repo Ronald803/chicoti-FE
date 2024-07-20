@@ -19,7 +19,7 @@ function NavBar() {
   ]
   return (
     <div className='w-full'>
-		<LogoBar/>
+		<LogoBar bg={''} st={{}} />
 		<OptionsBar options={options}/>
 	</div>
   )

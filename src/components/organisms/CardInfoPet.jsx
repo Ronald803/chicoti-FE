@@ -9,8 +9,8 @@ function CardInfoPet() {
     }
     return (
 <div className='h-80 w-full rounded-lg relative py-1'>
-  <div>
-  <div className='absolute top-3 left-3  text-white text-sm'>
+    <div>
+        <div className='absolute top-3 left-3  text-white text-sm'>
             <button onClick={goBack} className='fixed bg-primary py-1 px-2 rounded-md'>Atrás</button>
         </div>
         <div className='absolute top-3 right-0 bg-fourth px-4 text-primary rounded-l-md text-sm py-1'>

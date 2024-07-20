@@ -21,10 +21,15 @@ function FooterComponent() {
     <div className=''>
       <OptionsBar options={options}  />
       <hr className='pt-1'/>
-      <div className= 'bg-primary text-white text-center text-sm py-5'>
+      <div className= 'bg-primary text-white text-center text-sm py-2'>
         El amor no se puede comprar pero si se puede adoptar...
       </div>
-      <LogoBar/>
+      <LogoBar 
+        bg={'bg-primary'} 
+        st={{
+              filter: "brightness(0) invert(1)"
+            }} 
+      />
     </div>
   )
 }
