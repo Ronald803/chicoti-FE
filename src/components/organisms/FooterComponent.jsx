@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import OptionsBar from '../molecules/OptionsBar'
 import LogoBar from '../molecules/LogoBar'
+import { GeneralContext } from '../../modules/context/GeneralContext'
+import AnimalChoosenActionButton from '../molecules/AnimalChoosenActionButton'
 
 function FooterComponent() {
+  const {isAnimalChoosen} = useContext(GeneralContext)
   const options = [
     {
       optionName: "Buscar 🔎",
@@ -18,7 +21,13 @@ function FooterComponent() {
     }
   ]
   return (
-    <div className=''>
+  <div>
+    {
+      isAnimalChoosen
+      &&
+      <AnimalChoosenActionButton/>
+    }
+    <div className='border-t-2'>
       <OptionsBar options={options}  />
       <hr className='pt-1'/>
       <div className= 'bg-primary text-white text-center text-sm py-2'>
@@ -31,6 +40,7 @@ function FooterComponent() {
             }} 
       />
     </div>
+  </div>
   )
 }
 

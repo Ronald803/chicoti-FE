@@ -1,0 +1,18 @@
+import React from 'react'
+
+function SingleLabelAndInput(props) {
+  return (
+    <div className='pt-2 text-sm'>
+        <div><label className='ps-2' htmlFor={props.id}>{props.name}</label></div>
+        <input
+            type={props.type}
+            id={props.id}
+            name={props.id}
+            onChange={props.handleChange}
+            className='my-1 p-1 px-2 w-full rounded-lg border border-tertiary'
+        />
+    </div>
+  )
+}
+
+export default SingleLabelAndInput

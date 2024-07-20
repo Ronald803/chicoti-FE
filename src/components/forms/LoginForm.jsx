@@ -4,6 +4,8 @@ import successAlert from '../../alerts/successAlert';
 import errorAlert from '../../alerts/errorAlert';
 import { useNavigate } from 'react-router-dom';
 import { GeneralContext } from '../../modules/context/GeneralContext';
+import SingleLabelAndInput from '../molecules/SingleLabelAndInput';
+import ButtonForm from '../atoms/ButtonForm';
 
 
 function LoginForm(props) {
@@ -42,31 +44,9 @@ function LoginForm(props) {
     }
   return (
     <div className=''>
-        <form onSubmit={handleSubmit}>
-            <div className='pt-2'>
-                <div><label className='ps-2' htmlFor='email'>Email</label></div>
-                <input
-                    type='email'
-                    id='email'
-                    name='email'
-                    onChange={handleChange}
-                    className='my-1 p-1 w-full rounded-lg border border-tertiary'
-                />
-            </div>
-            <div className='pt-2'>
-                <div><label className='ps-2' htmlFor='password'>Contraseña</label></div>
-                <input
-                    type='password'
-                    id='password'
-                    name='password'
-                    onChange={handleChange}
-                    className='my-1 p-1 w-full rounded-lg border-tertiary border'
-                />
-            </div>
-            <div className='py-2 text-center'>
-                <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Iniciar Sesión</button>
-            </div>
-        </form>
+        <SingleLabelAndInput handleChange={handleChange} type='email' id='email' name='Correo Electrónico'/>
+        <SingleLabelAndInput handleChange={handleChange} type='password' id='password' name='Contraseña'/>
+        <ButtonForm buttonText='Iniciar sesión' onClick={handleSubmit} bg='bg-primary'/>
     </div>
   )
 }
