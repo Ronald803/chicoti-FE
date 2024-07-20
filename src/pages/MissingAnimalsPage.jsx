@@ -22,10 +22,8 @@ function MissingAnimalsPage() {
         ?
         <CardInfoPet/>
         :
-        <div>
-          {/* <Carousel petsArray={allMissingAnimals}/> */}
-          <Gallery petsArray={allMissingAnimals}/>
-        </div>
+        //<Carousel petsArray={allMissingAnimals}/>
+        <Gallery petsArray={allMissingAnimals}/>
       }
     </div>
   )

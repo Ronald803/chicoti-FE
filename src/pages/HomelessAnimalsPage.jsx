@@ -4,6 +4,7 @@ import { getAnimalsBackend } from '../requests/animalRequests'
 import Carousel from '../components/organisms/Carousel'
 import { GeneralContext } from '../modules/context/GeneralContext'
 import CardInfoPet from '../components/organisms/CardInfoPet'
+import Gallery from '../components/organisms/Gallery'
 
 function HomelessAnimalsPage() {
   const {isAnimalChoosen} = useContext(GeneralContext)
@@ -22,7 +23,8 @@ function HomelessAnimalsPage() {
         ?
         <CardInfoPet/>
         :
-        <Carousel petsArray={allHomelessAnimals} />
+        // <Carousel petsArray={allHomelessAnimals} />
+        <Gallery petsArray={allHomelessAnimals}/>
       }
     </div>
   )
