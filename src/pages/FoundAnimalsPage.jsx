@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { getAnimalsBackend } from '../requests/animalRequests'
-import Carousel from '../components/organisms/Carousel'
 import { GeneralContext } from '../modules/context/GeneralContext'
 import CardInfoPet from '../components/organisms/CardInfoPet'
 import Gallery from '../components/organisms/Gallery'
@@ -22,7 +21,6 @@ function FoundAnimalsPage() {
         ?
         <CardInfoPet/>
         :
-        // <Carousel petsArray={allFoundAnimals} />
         <Gallery petsArray={allFoundAnimals}/>
       }
     </div>

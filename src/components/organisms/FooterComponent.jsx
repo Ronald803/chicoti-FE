@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import OptionsBar from '../molecules/OptionsBar'
 import LogoBar from '../molecules/LogoBar'
-import { GeneralContext } from '../../modules/context/GeneralContext'
-import AnimalChoosenActionButton from '../molecules/AnimalChoosenActionButton'
+import ActionButton from '../molecules/ActionButton'
 
 function FooterComponent() {
-  const {isAnimalChoosen} = useContext(GeneralContext)
   const options = [
     {
       optionName: "Buscar 🔎",
@@ -21,15 +19,10 @@ function FooterComponent() {
     }
   ]
   return (
-  <div>
-    {
-      isAnimalChoosen
-      &&
-      <AnimalChoosenActionButton/>
-    }
+  <div className='relative'>
+    <ActionButton/>
     <div className='border-t-2'>
       <OptionsBar options={options}  />
-      <hr className='pt-1'/>
       <div className= 'bg-primary text-white text-center text-sm py-2'>
         El amor no se puede comprar pero si se puede adoptar...
       </div>

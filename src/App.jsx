@@ -11,20 +11,21 @@ import UrlImageFIxerPage from './pages/UrlImageFIxerPage'
 import NavBar from './components/organisms/NavBar'
 import FooterComponent from './components/organisms/FooterComponent'
 import { GeneralProvider } from './modules/context/GeneralProvider'
-import BodyComponent from './components/pages/BodyComponent'
 import UserPage from './pages/UserPage'
 import SearchPage from './pages/SearchPage'
 import AboutUs from './pages/AboutUs'
+import RegisterAnimalPage from './pages/RegisterAnimalPage'
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: '/',          element: <MissingAnimalsPage/>},
-    { path: '/missing',   element: <MissingAnimalsPage/>},
-    { path: '/found',     element: <FoundAnimalsPage/>},
-    { path: '/homeless',  element: <HomelessAnimalsPage/>},
-    { path: '/user',      element: <UserPage/>},
-    { path: '/search',    element: <SearchPage/>},
-    { path: '/aboutus',   element: <AboutUs/>},
+    { path: '/',            element: <MissingAnimalsPage/>},
+    { path: '/missing',     element: <MissingAnimalsPage/>},
+    { path: '/found',       element: <FoundAnimalsPage/>},
+    { path: '/homeless',    element: <HomelessAnimalsPage/>},
+    { path: '/user',        element: <UserPage/>},
+    { path: '/search',      element: <SearchPage/>},
+    { path: '/aboutus',     element: <AboutUs/>},
+    { path: '/registerpet', element: <RegisterAnimalPage/>},
 
     { path: '/new-user',  element: <CreateUserForm/>},
     { path: '/login',     element: <LoginForm/>},

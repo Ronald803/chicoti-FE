@@ -3,7 +3,7 @@ import { postNewAnimalBackend } from '../../requests/animalRequests'
 
 function CreateAnimalForm(props) {
     const characteristic = props.fatherData
-    console.log(characteristic);
+    //console.log(characteristic);
     const [animal, setAnimal] = useState({
         name: " ",
         species: " ",
@@ -57,9 +57,9 @@ function CreateAnimalForm(props) {
             })
     }
 return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center text-sm'>
         <div className='m-2 border-2 border-black rounded-lg w-96'>
-            <h4 className='text-center font-bold bg-secondary py-2 text-white'>Te ayudamos a encontrar a tu peque</h4>
+            <h4 className='text-center bg-secondary py-2 text-white'>Te ayudamos a encontrar a tu peque</h4>
             <h4 className='px-4 pt-2'>Llena el siguiente formulario</h4>
             <div className='p-4 '>
                 <form onSubmit={handleSubmit}>

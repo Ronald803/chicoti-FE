@@ -5,7 +5,7 @@ import SingleOptionBar from '../atoms/SingleOptionBar'
 function OptionsBar(props) {
     const location = useLocation()
   return (
-    <div className='flex flex-row bg-primary text-sm py-1'>
+    <div className='flex flex-row bg-primary text-sm py-1 border-b-2 border-white'>
       {
         props.options.map((option,index)=>{
           return (

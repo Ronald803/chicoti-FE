@@ -18,7 +18,7 @@ function NavBar() {
     }
   ]
   return (
-    <div className='w-full'>
+  <div className='w-full'>
 		<LogoBar bg={''} st={{}} />
 		<OptionsBar options={options}/>
 	</div>
