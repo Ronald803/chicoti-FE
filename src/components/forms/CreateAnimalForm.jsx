@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { postNewAnimalBackend } from '../../requests/animalRequests'
+import OneLineLabelInput from '../molecules/OneLineLabelInput'
 
 function CreateAnimalForm(props) {
     const characteristic = props.fatherData
@@ -63,35 +64,17 @@ return (
             <h4 className='px-4 pt-2'>Llena el siguiente formulario</h4>
             <div className='p-4 '>
                 <form onSubmit={handleSubmit}>
-                    <div className='flex'>
-                        <label className='w-1/3' htmlFor='name'>Nombre</label>
-                        <input 
-                            type='text'
-                            id='name'
-                            name='name'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
+                    <OneLineLabelInput id='name' type='text' name='Nombre' onChange={handleChange} />
                     <div className='flex pt-1'>
                         <label className='w-1/3' htmlFor='species'>Especie</label>
                         <select className='w-2/3 rounded-lg border border-tertiary' name="species" id="species" onChange={handleChange}>
                             <option value="">Elige una opción</option>
                             <option value="dog">Perro</option>
                             <option value="cat">Gato</option>
-                            <option valued="other">Otro</option>
+                            <option value="other">Otro</option>
                         </select>
                     </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='breed'>Raza</label>
-                        <input 
-                            type='text'
-                            id='breed'
-                            name='breed'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
+                    <OneLineLabelInput id='breed' type='text' name='Raza' onChange={handleChange} />
                     <div className='flex pt-1'>
                         <label className='w-1/3' htmlFor='gender'>Sexo</label>
                         <select className='w-2/3 rounded-lg border border-tertiary' name="gender" id="gender" onChange={handleChange}>
@@ -100,26 +83,8 @@ return (
                             <option value="hembrita">hembrita</option>
                         </select>
                     </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3'  htmlFor='color'>Color</label>
-                        <input 
-                            type='text'
-                            id='color'
-                            name='color'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='age'>Edad (años)</label>
-                        <input 
-                            type='number'
-                            id='age'
-                            name='age'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>            
+                    <OneLineLabelInput id='color' type='text' name='Color' onChange={handleChange} />
+                    <OneLineLabelInput id='age' type='number' name='Edad (años)' onChange={handleChange} />
                     <div className='flex pt-1'>
                         <label className='w-1/3' htmlFor='sterilized'>Esterilizado</label>
                         <select className='w-2/3 rounded-lg border border-tertiary' name="sterilized" id="sterilized" onChange={handleChange}>
@@ -128,46 +93,10 @@ return (
                             <option value={false}>No</option>
                         </select>
                     </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='sterilizedCode'>Código de esterilización</label>
-                        <input 
-                            type='text'
-                            id='sterilizedCode'
-                            name='sterilizedCode'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='other'>Otra información relevante</label>
-                        <input 
-                            type='text'
-                            id='other'
-                            name='other'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='date'>Cuándo?</label>
-                        <input 
-                            type='date'
-                            id='date'
-                            name='date'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='place'>Dónde?</label>
-                        <input 
-                            type='text'
-                            id='place'
-                            name='place'
-                            onChange={handleChange}
-                            className='w-2/3 rounded-lg border border-tertiary'
-                        />
-                    </div>
+                    <OneLineLabelInput id='sterilizedCode' type='text' name='Código de esterilización' onChange={handleChange} />
+                    <OneLineLabelInput id='other' type='text' name='Otra información relevante' onChange={handleChange} />
+                    <OneLineLabelInput id='date' type='date' name='Cuándo?' onChange={handleChange} />
+                    <OneLineLabelInput id='place' type='text' name='Dónde?' onChange={handleChange} />
                     <div className='flex pt-1'>
                         <label className='w-1/3' htmlFor='cellphone1'>Celular</label>
                         <div className='w-2/3 rounded-lg border border-tertiary'>

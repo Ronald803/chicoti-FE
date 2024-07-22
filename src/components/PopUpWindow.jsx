@@ -1,20 +1,30 @@
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LoginForm from  './forms/LoginForm';
 import CreateUserForm from './forms/CreateUserForm';
-import { GeneralContext } from '../modules/context/GeneralContext';
 import PrimaryButton from './atoms/PrimaryButton';
 import ButtonForm from './atoms/ButtonForm';
 
 
-function PopUpWindow(props) {
-    const { isLogged,setIsLogged,userName,setUserName } = useContext(GeneralContext)
-    const closeWindow = props.closeWindow
+function PopUpWindow() {
+    const [isLogged, setIsLogged] = useState(false)
+    const [userName, setUserName] = useState(null)
+    useEffect(()=>{
+        const token = sessionStorage.getItem('t')
+        const username = sessionStorage.getItem('n')
+        if(token.length>0){
+            setIsLogged(true)
+            setUserName(username)
+        }
+    },[])
     const [createAccount, setCreateAccount] = useState(false);
     const toggleCreateAccount = () => {setCreateAccount(!createAccount) }
     const logOut = () => {
         setIsLogged(false)
         setUserName("")
-        closeWindow()
+        sessionStorage.setItem('n',"");
+        sessionStorage.setItem('t',"");
+        sessionStorage.setItem('r',"");
+        sessionStorage.setItem('c',"");
     }
   return (
     <div className='flex justify-center'>
@@ -39,7 +49,7 @@ function PopUpWindow(props) {
                     </div>
                     :
                     <div>
-                        <LoginForm closePopWindow={closeWindow}/>
+                        <LoginForm/>
                         <hr className=''/>
                         <ButtonForm buttonText='No tengo cuenta' onClick={toggleCreateAccount} bg='bg-secondary'/>
                     </div>

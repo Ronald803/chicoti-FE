@@ -8,9 +8,8 @@ import SingleLabelAndInput from '../molecules/SingleLabelAndInput';
 import ButtonForm from '../atoms/ButtonForm';
 
 
-function LoginForm(props) {
+function LoginForm() {
     const {setIsLogged,setUserName} = useContext(GeneralContext)
-    const closePopWindow = props.closePopWindow
     const navigate = useNavigate();
     const user = {
         email: '',
@@ -31,7 +30,6 @@ function LoginForm(props) {
                 setIsLogged(true)
                 setUserName(answer.data.body.name)
                 setTimeout(() => {
-                    closePopWindow();
                     navigate('/')
                   }, 2500);    
             })
