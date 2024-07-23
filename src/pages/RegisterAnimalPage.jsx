@@ -9,7 +9,7 @@ function RegisterAnimalPage() {
     navigate('/user')
   }
   useEffect(()=>{
-    const token = sessionStorage.getItem('t')
+    const token = sessionStorage.getItem('t') || { length: 0 }
     if(token.length<2){
       buttonAlert({
         title:'No iniciaste sesión',

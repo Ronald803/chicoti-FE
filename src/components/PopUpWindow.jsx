@@ -9,7 +9,7 @@ function PopUpWindow() {
     const [isLogged, setIsLogged] = useState(false)
     const [userName, setUserName] = useState(null)
     useEffect(()=>{
-        const token = sessionStorage.getItem('t')
+        const token = sessionStorage.getItem('t') || { length: 0 }
         const username = sessionStorage.getItem('n')
         if(token.length>0){
             setIsLogged(true)

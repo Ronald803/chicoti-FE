@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { postNewAnimalBackend } from '../../requests/animalRequests'
 import OneLineLabelInput from '../molecules/OneLineLabelInput'
+import OneLineLabelSelect from '../molecules/OneLineLabelSelect'
 
-function CreateAnimalForm(props) {
-    const characteristic = props.fatherData
-    //console.log(characteristic);
+function CreateAnimalForm() {
     const [animal, setAnimal] = useState({
         name: " ",
         species: " ",
@@ -15,10 +14,10 @@ function CreateAnimalForm(props) {
         sterilizedCode: " ",
         other: " ",
         date: " ",
-        cellphone2: " ",
-        cellphone3: " ",
+        cellphone: " ",
         place: " ",
-        color: " "
+        color: " ",
+        characteristic: "perdido"
     })
     const [imagen, setImagen] = useState(null)
     const handleImageChange = (e) => {
@@ -26,7 +25,7 @@ function CreateAnimalForm(props) {
         setImagen(e.target.files[0]) 
     }
     const handleChange = (e) => {
-        animal[e.target.name] = (e.target.value).toUpperCase()
+        animal[e.target.name] = (e.target.value)
         console.log(animal);
     }
     const handleSubmit = async (e)=>{
@@ -44,12 +43,12 @@ function CreateAnimalForm(props) {
             date: animal.date,
             place: animal.place,
             color: animal.color,
-            cellphones: [sessionStorage.getItem('c'),animal?.cellphone2,animal?.cellphone3]
+            cellphones: [animal.cellphone]
         }
         console.log(newAnimal);
         formData.append('bodyJson',JSON.stringify(newAnimal));
         formData.append('image',imagen);
-        await postNewAnimalBackend(formData,characteristic)
+        await postNewAnimalBackend(formData,animal.characteristic)
             .then(answer=>{
                 console.log(answer);
             })
@@ -59,71 +58,31 @@ function CreateAnimalForm(props) {
     }
 return (
     <div className='flex items-center justify-center text-sm'>
-        <div className='m-2 border-2 border-black rounded-lg w-96'>
-            <h4 className='text-center bg-secondary py-2 text-white'>Te ayudamos a encontrar a tu peque</h4>
-            <h4 className='px-4 pt-2'>Llena el siguiente formulario</h4>
+        <div className='m-2 border-2 border-black rounded-lg min-w-96'>
+            <h4 className='text-center bg-secondary py-2 text-white'>Llena el siguiente formulario</h4>
             <div className='p-4 '>
                 <form onSubmit={handleSubmit}>
                     <OneLineLabelInput id='name' type='text' name='Nombre' onChange={handleChange} />
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='species'>Especie</label>
-                        <select className='w-2/3 rounded-lg border border-tertiary' name="species" id="species" onChange={handleChange}>
-                            <option value="">Elige una opción</option>
-                            <option value="dog">Perro</option>
-                            <option value="cat">Gato</option>
-                            <option value="other">Otro</option>
-                        </select>
-                    </div>
+                    <OneLineLabelSelect id='characteristic' name='Situación' handleChange={handleChange}
+                        options={[{value:'perdido',name:'Perdid@'},{value:'encontrado',name:'Encontrad@'},{value:'sin-hogar',name:'En adopción'}]}
+                    />
+                    <OneLineLabelSelect id='species' name='Especie' handleChange={handleChange}
+                        options={[{value:'dog',name:'Perro'},{value:'cat',name:'Gato'},{value:'other',name:'Otro'}]}
+                    />
                     <OneLineLabelInput id='breed' type='text' name='Raza' onChange={handleChange} />
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='gender'>Sexo</label>
-                        <select className='w-2/3 rounded-lg border border-tertiary' name="gender" id="gender" onChange={handleChange}>
-                            <option value="">Elige una opción</option>
-                            <option value="machito" >machito</option>
-                            <option value="hembrita">hembrita</option>
-                        </select>
-                    </div>
+                    <OneLineLabelSelect id='gender' name='Sexo' handleChange={handleChange}
+                        options={[{value:'male',name:'Machito'},{value:'female',name:'Hembrita'}]}
+                    />
                     <OneLineLabelInput id='color' type='text' name='Color' onChange={handleChange} />
                     <OneLineLabelInput id='age' type='number' name='Edad (años)' onChange={handleChange} />
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='sterilized'>Esterilizado</label>
-                        <select className='w-2/3 rounded-lg border border-tertiary' name="sterilized" id="sterilized" onChange={handleChange}>
-                            <option value="">Elige una opción</option>
-                            <option value={true} >Si</option>
-                            <option value={false}>No</option>
-                        </select>
-                    </div>
+                    <OneLineLabelSelect id='sterilized' name='Esterilizado' handleChange={handleChange}
+                        options={[{value:true,name:'Si'},{value:false,name:'No'}]}
+                    />
                     <OneLineLabelInput id='sterilizedCode' type='text' name='Código de esterilización' onChange={handleChange} />
                     <OneLineLabelInput id='other' type='text' name='Otra información relevante' onChange={handleChange} />
                     <OneLineLabelInput id='date' type='date' name='Cuándo?' onChange={handleChange} />
                     <OneLineLabelInput id='place' type='text' name='Dónde?' onChange={handleChange} />
-                    <div className='flex pt-1'>
-                        <label className='w-1/3' htmlFor='cellphone1'>Celular</label>
-                        <div className='w-2/3 rounded-lg border border-tertiary'>
-                            <input 
-                                type='number'
-                                id='cellphone1'
-                                name='cellphone1'
-                                placeholder={sessionStorage.getItem('c')}
-                                disabled
-                                className='w-full mt-1'
-                            />
-                            <input 
-                                type='number'
-                                id='cellphone2'
-                                name='cellphone2'
-                                onChange={handleChange}
-                                className='w-full mt-1'
-                            />
-                            <input 
-                                type='number'
-                                id='cellphone3'
-                                name='cellphone3'
-                                onChange={handleChange}
-                                className='w-full mt-1'
-                            />
-                        </div>
-                    </div>
+                    <OneLineLabelInput id='cellphone' type='number' name='Celular' onChange={handleChange} />
                     <div>
                         <label  htmlFor='img'>Sube la fotografía más nitida que tengas del animalito</label>
                         <input 
