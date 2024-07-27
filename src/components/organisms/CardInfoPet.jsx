@@ -18,7 +18,7 @@ function CardInfoPet() {
                 src={animalChoosen.photoUrlOfficial}
             />
         </div>
-        <div className='py-1 px-2 bg-tertiary text-white text-sm flex'>
+        <div className='py-1 px-2 bg-tertiary text-sm flex'>
             <div className='w-1/2'>
                 <div className='flex px-2'>
                     <p className='w-2/5'>Género: </p>
@@ -43,7 +43,7 @@ function CardInfoPet() {
                 </div>
             </div>
         </div>
-        <div className='py-1 bg-tertiary text-center'>. </div>
+        <div className='py-3 bg-tertiary text-center'>. </div>
     </div>
   )
 }

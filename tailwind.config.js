@@ -9,10 +9,10 @@ export default {
   theme: {
     colors:{
       ...colors,
-      "primary": "#FE3E75",
-      "secondary": "#FF6B95",
-      "tertiary": "#FF99B6",
-      "fourth": "#FFD1DE"
+      "primary": "#FF5988",
+      "secondary": "#FF85A8",
+      "tertiary": "#FFB8CC",
+      "fourth": "#FFFFF"
       },
       fontFamily: { 
         //Montserrat: ["Montserrat", "sans-serif"],

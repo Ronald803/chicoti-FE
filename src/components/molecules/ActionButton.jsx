@@ -29,7 +29,7 @@ function ActionButton() {
         }
     }
   return (
-    <div className='w-full flex justify-center absolute  -top-10'>
+    <div className='w-full flex justify-center absolute  -top-12'>
         {
             buttonName.length > 0
             &&
