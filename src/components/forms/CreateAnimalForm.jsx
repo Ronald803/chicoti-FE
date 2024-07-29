@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import { postNewAnimalBackend } from '../../requests/animalRequests'
 import OneLineLabelInput from '../molecules/OneLineLabelInput'
 import OneLineLabelSelect from '../molecules/OneLineLabelSelect'
+import successAlert from '../../alerts/successAlert'
+import { useNavigate } from 'react-router-dom'
+import errorAlert from '../../alerts/errorAlert'
 
 function CreateAnimalForm() {
+    const navigate = useNavigate()
     const [animal, setAnimal] = useState({
         name: " ",
         species: " ",
@@ -48,13 +52,18 @@ function CreateAnimalForm() {
         console.log(newAnimal);
         formData.append('bodyJson',JSON.stringify(newAnimal));
         formData.append('image',imagen);
-        await postNewAnimalBackend(formData,animal.characteristic)
-            .then(answer=>{
-                console.log(answer);
-            })
-            .catch(e=>{
-                console.log(e);
-            })
+        const answer = await postNewAnimalBackend(formData,animal.characteristic)
+        if(answer.status == 200){
+            successAlert('Peludit@ registrado correctamente')
+            setTimeout(()=>{
+                navigate('/')
+            },3000)
+        } else {
+            errorAlert('Algo salió mal, vuelve a intentarlo por favor');
+            setTimeout(()=>{
+                window.location.reload()
+            },3000)
+        }
     }
 return (
     <div className='flex items-center justify-center text-sm'>
