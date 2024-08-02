@@ -33,3 +33,7 @@ export function updateUrlPhotoBackend(petId,body){
         )
     )
 }
+
+export function getAnimalsByQueryBackend(query){
+    return axios.get(`${url}?${query}`)
+}
