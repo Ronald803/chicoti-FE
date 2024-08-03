@@ -1,59 +1,59 @@
-import React, { useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { getAnimalsByQueryBackend } from '../requests/animalRequests';
 import SearchForm from './organisms/SearchForm';
 import Gallery from './organisms/Gallery';
+import { GeneralContext } from '../modules/context/GeneralContext';
+import CardInfoPet from './organisms/CardInfoPet';
 
 function Seeker() {
-  let petCharacteristic = {
-    breed: "",
-    characteristic: "",
-    gender: "",
-    species: "",
-  }
+  const { isAnimalChoosen } = useContext(GeneralContext)
+  const genderRef = useRef(null);
+  const speciesRef = useRef(null);
+  const characteristicRef = useRef(null);
   const [petsArray, setPetsArray] = useState([])
   const getSpecificPets = async (query)=>{
       const answer = await getAnimalsByQueryBackend(query)
       console.log(answer.data)
       setPetsArray(answer.data.body)
   }
-  const handleChange = (e)=>{
-    petCharacteristic[e.target.name] = e.target.value
-  }
   const handleSubmit = (e)=>{
     e.preventDefault();
     let q = "";
-    if(petCharacteristic.breed!=""){
-      q = `breed=${petCharacteristic.breed}&`
-    } 
-    if(petCharacteristic.characteristic!=""){
-      q = q + `characteristic=${petCharacteristic.characteristic}`
+    if(characteristicRef.current.value!=""){
+      q = q + `characteristic=${characteristicRef.current.value}&`
     }
-    if(petCharacteristic.gender!=""){
-      q = q + `gender=${petCharacteristic.gender}`
+    if(genderRef.current.value!=""){
+      q = q + `gender=${genderRef.current.value}&`
     }
-    if(petCharacteristic.species!=""){
-      q = q + `species=${petCharacteristic.species}`
+    if(speciesRef.current.value!=""){
+      q = q + `species=${speciesRef.current.value}&`
     }
-    console.log(petCharacteristic)
     console.log(q)
     getSpecificPets(q)
   }
   return (
-    <div className='py-2'>
-      <div className='text-center pb-2'>
-      Busca en nuestra base de datos 🔎
-      </div>
-      <div className='bg-primary py-1' >
-        <SearchForm handleSubmit={handleSubmit} handleChange={handleChange} />
-      </div>
+    <div className='py-1'>
       {
-        petsArray.length>0
+        isAnimalChoosen
         ?
-        <Gallery petsArray={petsArray} />
+        <CardInfoPet/>
         :
-        <div>No hay resultados</div>
+        <div>
+          <SearchForm 
+            handleSubmit={handleSubmit} 
+            genderRef={genderRef}
+            characteristicRef={characteristicRef}
+            speciesRef={speciesRef}
+          />
+          {
+            petsArray.length>0
+            ?
+            <Gallery petsArray={petsArray} />
+            :
+            <div className='p-2'>No hay resultados...</div>
+          }
+        </div>  
       }
-
     </div>
   )
 }
