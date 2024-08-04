@@ -4,13 +4,16 @@ const buttonAlert = (props) => {
     Swal.fire({
         title: `<strong>${props.title}</strong>`,
         icon: "info",
+        showCancelButton: true,
         html: props.message,
         focusConfirm: false,
         confirmButtonText: `
           Continuar
         `
-      }).then(()=>{
-        props.next()
+      }).then((result)=>{
+        if(result.isConfirmed){
+          props.next()
+        }
       })
 }
 

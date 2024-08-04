@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import OptionsBar from '../molecules/OptionsBar'
 import LogoBar from '../molecules/LogoBar'
 import ActionButton from '../molecules/ActionButton'
+import optionsArrays from '../../modules/optionsArrays'
 
 function FooterComponent() {
   const [logged, setLogged] = useState(false)
@@ -11,25 +12,11 @@ function FooterComponent() {
       setLogged(true)
     }
   },[])
-  const options = [
-    {
-      optionName: "Buscar 🔎",
-      optionPath: "/search"
-    },
-    {
-      optionName: "Mi cuenta 👤",
-      optionPath: "/user"
-    },
-    {
-      optionName: "Nosotros",
-      optionPath: "/aboutus"
-    }
-  ]
   return (
   <div className='relative'>
     { logged && <ActionButton/> }
     <div className='border-t-2'>
-      <OptionsBar options={options}  />
+      <OptionsBar options={optionsArrays.footer}  />
       <div className= 'bg-primary text-white text-center text-sm py-2'>
         El amor no se puede comprar pero si se puede adoptar...
       </div>
