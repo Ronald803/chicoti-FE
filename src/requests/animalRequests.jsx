@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const url = 'http://localhost:4000/api/animals/'
-//const url = 'https://chicoti-be.vercel.app/api/animals/'
+//const url = 'http://localhost:4000/api/animals/'
+const url = 'https://chicoti-be.vercel.app/api/animals/'
 const t = sessionStorage.getItem('t')
 
 export function postNewAnimalBackend(animalData,characteristic){
