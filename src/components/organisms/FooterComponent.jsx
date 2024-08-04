@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import OptionsBar from '../molecules/OptionsBar'
 import LogoBar from '../molecules/LogoBar'
 import ActionButton from '../molecules/ActionButton'
 
 function FooterComponent() {
+  const [logged, setLogged] = useState(false)
+  useEffect(()=>{
+    const token = sessionStorage.getItem('t') || { length: 0 }
+    if(token.length>2){
+      setLogged(true)
+    }
+  },[])
   const options = [
     {
       optionName: "Buscar 🔎",
@@ -20,7 +27,7 @@ function FooterComponent() {
   ]
   return (
   <div className='relative'>
-    <ActionButton/>
+    { logged && <ActionButton/> }
     <div className='border-t-2'>
       <OptionsBar options={options}  />
       <div className= 'bg-primary text-white text-center text-sm py-2'>

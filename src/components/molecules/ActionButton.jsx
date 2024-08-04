@@ -2,6 +2,9 @@ import React, { useContext } from 'react'
 import { GeneralContext } from '../../modules/context/GeneralContext'
 import ButtonForm from '../atoms/ButtonForm'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { notificateAnimalOwner } from '../../requests/animalRequests'
+import successAlert from '../../alerts/successAlert'
+import buttonAlert from '../../alerts/buttonAlert'
 
 function ActionButton() {
     const {animalChoosen,isAnimalChoosen} = useContext(GeneralContext)
@@ -21,9 +24,19 @@ function ActionButton() {
         buttonName = `Adoptar a ${animalChoosen?.petName}`
     }
     const navigate = useNavigate()
+    const notificate = async () => {
+        const answer = await notificateAnimalOwner(animalChoosen)
+        if(answer.status == 200){
+            successAlert('Se notificó a las personas a cargo del peludito. Muchas gracias...')
+        }
+    }
     const handleAction = () => {
         if(animalChoosen){
-            console.log(buttonName)
+            buttonAlert({
+                title:'Chicoti',
+                message:'Se notificará a las personas a cargo del peludit@ para que se contacten contigo',
+                next: notificate
+            })
         }else{
             navigate('/registerpet')
         }

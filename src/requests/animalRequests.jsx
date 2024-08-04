@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//const url = 'http://localhost:4000/api/animals/'
-const url = 'https://chicoti-be.vercel.app/api/animals/'
+const url = 'http://localhost:4000/api/animals/'
+//const url = 'https://chicoti-be.vercel.app/api/animals/'
 const t = sessionStorage.getItem('t')
 
 export function postNewAnimalBackend(animalData,characteristic){
@@ -36,4 +36,14 @@ export function updateUrlPhotoBackend(petId,body){
 
 export function getAnimalsByQueryBackend(query){
     return axios.get(`${url}?${query}`)
+}
+
+export function notificateAnimalOwner(petInfo){
+    return (
+        axios.put(
+            url+'notification/',
+            petInfo,
+            {headers: { "xtoken": t}}
+        )
+    )
 }

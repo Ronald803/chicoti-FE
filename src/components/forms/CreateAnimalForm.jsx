@@ -14,14 +14,11 @@ function CreateAnimalForm() {
         breed: "criollo",
         gender: " ",
         age: 0,
-        sterilized: false,
-        sterilizedCode: " ",
         other: " ",
-        date: " ",
         cellphone: " ",
-        place: " ",
         color: " ",
-        characteristic: "perdido"
+        characteristic: "perdido",
+        city: " "
     })
     const [imagen, setImagen] = useState(null)
     const handleImageChange = (e) => {
@@ -41,13 +38,10 @@ function CreateAnimalForm() {
             breed: animal.breed,
             gender: animal.gender,
             age: animal.age,
-            sterilized: animal.sterilized,
-            sterilizedCode: animal.sterilizedCode,
             other: animal.other,
-            date: animal.date,
-            place: animal.place,
             color: animal.color,
-            cellphones: [animal.cellphone]
+            cellphones: [animal.cellphone],
+            city: animal.city,
         }
         console.log(newAnimal);
         formData.append('bodyJson',JSON.stringify(newAnimal));
@@ -78,19 +72,16 @@ return (
                     <OneLineLabelSelect id='species' name='Especie' handleChange={handleChange}
                         options={[{value:'dog',name:'Perro'},{value:'cat',name:'Gato'},{value:'other',name:'Otro'}]}
                     />
-                    <OneLineLabelInput id='breed' type='text' name='Raza' onChange={handleChange} />
                     <OneLineLabelSelect id='gender' name='Sexo' handleChange={handleChange}
-                        options={[{value:'male',name:'Machito'},{value:'female',name:'Hembrita'}]}
+                        options={[{value:'machito',name:'machito'},{value:'hembrita',name:'hembrita'}]}
                     />
+                    <OneLineLabelSelect id='city' name='Ciudad' handleChange={handleChange}
+                        options={[{value:'La Paz',name:'La Paz'},{value:'El Alto',name:'El Alto'},{value:'Otro',name:'Otro'} ]}
+                    />
+                    <OneLineLabelInput id='breed' type='text' name='Raza' onChange={handleChange} />
                     <OneLineLabelInput id='color' type='text' name='Color' onChange={handleChange} />
                     <OneLineLabelInput id='age' type='number' name='Edad (años)' onChange={handleChange} />
-                    <OneLineLabelSelect id='sterilized' name='Esterilizado' handleChange={handleChange}
-                        options={[{value:true,name:'Si'},{value:false,name:'No'}]}
-                    />
-                    <OneLineLabelInput id='sterilizedCode' type='text' name='Código de esterilización' onChange={handleChange} />
                     <OneLineLabelInput id='other' type='text' name='Otra información relevante' onChange={handleChange} />
-                    <OneLineLabelInput id='date' type='date' name='Cuándo?' onChange={handleChange} />
-                    <OneLineLabelInput id='place' type='text' name='Dónde?' onChange={handleChange} />
                     <OneLineLabelInput id='cellphone' type='number' name='Celular' onChange={handleChange} />
                     <div>
                         <label  htmlFor='img'>Sube la fotografía más nitida que tengas del animalito</label>
@@ -108,7 +99,7 @@ return (
                         <button className='py-1 px-8 rounded-lg bg-primary text-white hover:bg-fourth hover:text-black'>Guardar información</button>
                     </div>
                 </form>
-            </div>        
+            </div>  
         </div>
     </div>
     
