@@ -11,7 +11,7 @@ function HomelessAnimalsPage() {
     getPets()
   },[])
   const getPets = async () => {
-    const ans = await getAnimalsBackend('sin-hogar')
+    const ans = await getAnimalsBackend('homeless')
     setAllHomelessAnimals(ans.data.body)
   }
   return (

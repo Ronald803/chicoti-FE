@@ -18,7 +18,7 @@ function CreateAnimalForm() {
         other: " ",
         cellphone: " ",
         color: " ",
-        characteristic: "perdido",
+        characteristic: "missing",
         city: " "
     })
     const [imagen, setImagen] = useState(null)
@@ -51,7 +51,7 @@ function CreateAnimalForm() {
         if (answer.status == 200) {
             successAlert('Peludit@ registrado correctamente')
             setTimeout(() => {
-                navigate('/')
+                navigate(`/${animal.characteristic}`)
             }, 3000)
         } else {
             errorAlert('Algo salió mal, vuelve a intentarlo por favor');

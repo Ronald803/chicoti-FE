@@ -16,7 +16,7 @@ import RegisterAnimalPage from './pages/RegisterAnimalPage'
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: '/',            element: <MissingAnimalsPage/>},
+    { path: '/',            element: <HomePage/>},
     { path: '/missing',     element: <MissingAnimalsPage/>},
     { path: '/found',       element: <FoundAnimalsPage/>},
     { path: '/homeless',    element: <HomelessAnimalsPage/>},

@@ -11,7 +11,7 @@ function FoundAnimalsPage() {
     getPets()
   },[])
   const getPets = async() => {
-    const ans = await getAnimalsBackend("encontrado")
+    const ans = await getAnimalsBackend("found")
     setAllFoundAnimals(ans.data.body)
   }
   return (

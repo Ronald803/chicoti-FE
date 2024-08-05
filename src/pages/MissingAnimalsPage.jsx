@@ -12,7 +12,7 @@ function MissingAnimalsPage() {
     getPets()
   },[])
   const getPets = async() =>{
-    const ans = await getAnimalsBackend("perdido")
+    const ans = await getAnimalsBackend("missing")
     setAllMissingAnimals(ans.data.body)
   }
   return (

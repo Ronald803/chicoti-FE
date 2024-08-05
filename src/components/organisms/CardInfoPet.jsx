@@ -36,7 +36,7 @@ function CardInfoPet() {
                 </div>
                 <div className='flex px-2'>
                     <p className='w-2/5'>Celular:</p>
-                    <p className='w-3/5'>{animalChoosen.cellphones[1]}</p>
+                    <p className='w-3/5'>{animalChoosen.cellphones[0]}</p>
                 </div>
                 <div className='px-2'>
                     <p className='CAPITALIZE'>{animalChoosen.other}</p>

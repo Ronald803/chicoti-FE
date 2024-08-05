@@ -1,8 +1,8 @@
 const optionsArrays = {
   characteristics: [
-    { value: 'perdido', name: 'Perdid@' },
-    { value: 'encontrado', name: 'Encontrad@' },
-    { value: 'sin-hogar', name: 'En adopción' }
+    { value: 'missing', name: 'Perdid@' },
+    { value: 'found', name: 'Encontrad@' },
+    { value: 'homeless', name: 'En adopción' }
   ],
   species: [
     { value: 'dog', name: 'Perro' },
