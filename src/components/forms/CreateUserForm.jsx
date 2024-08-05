@@ -4,8 +4,10 @@ import successAlert from '../../alerts/successAlert'
 import errorAlert from '../../alerts/errorAlert'
 import SingleLabelAndInput from '../molecules/SingleLabelAndInput'
 import ButtonForm from '../atoms/ButtonForm'
+import { useNavigate } from 'react-router-dom'
 
 function CreateUserForm() {
+    const navigate = useNavigate();
     const newUser = {
         name: "",
         cellphone: "",
@@ -20,13 +22,13 @@ function CreateUserForm() {
         console.log(newUser);
         postNewUserBackend(newUser)
             .then(answer=>{
-                sessionStorage.setItem('n',answer.data.name);
-                sessionStorage.setItem('t',answer.data.token);
-                sessionStorage.setItem('r',answer.data.rol);
+                console.log(answer);
+                sessionStorage.setItem('n',answer.data.body.name);
+                sessionStorage.setItem('t',answer.data.body.token);
+                sessionStorage.setItem('r',answer.data.body.rol);
                 successAlert('Bienvenid@ ' + answer.data.body.name)
                 setTimeout(() => {
-                    closePopWindow();
-                    navigate('/')
+                    navigate('/missing')
                 }, 2500);
             })
             .catch(e=>{

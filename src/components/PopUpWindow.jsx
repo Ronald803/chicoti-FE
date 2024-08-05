@@ -33,8 +33,8 @@ function PopUpWindow() {
             {
                 isLogged
                 ?
-                <div>
-                    {userName}
+                <div className='text-center'>
+                    <div className='py-2'>{userName}</div>
                     <PrimaryButton buttonText="Cerrar sesión" onClick={logOut} />
                 </div>
                 :

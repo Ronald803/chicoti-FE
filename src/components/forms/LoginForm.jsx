@@ -30,7 +30,7 @@ function LoginForm() {
                 setIsLogged(true)
                 setUserName(answer.data.body.name)
                 setTimeout(() => {
-                    navigate('/')
+                    navigate('/missing')
                   }, 2500);    
             })
             .catch(e=>{
