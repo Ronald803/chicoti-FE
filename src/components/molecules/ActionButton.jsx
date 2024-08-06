@@ -16,11 +16,11 @@ function ActionButton() {
         buttonName = 'Publicar encontrado'
     } else if(location.pathname=='/homeless' && !isAnimalChoosen){
         buttonName = 'Publicar en adopción'
-    } else if(animalChoosen?.characteristic == 'perdido'){
+    } else if(animalChoosen?.characteristic == 'missing'){
         buttonName = `Encontré a ${animalChoosen?.petName}`
-    } else if(animalChoosen?.characteristic == 'encontrado') {
+    } else if(animalChoosen?.characteristic == 'found') {
         buttonName = `Conozco donde vive ${animalChoosen?.petName}`
-    } else if(animalChoosen?.characteristic == 'sin-hogar'){
+    } else if(animalChoosen?.characteristic == 'homeless'){
         buttonName = `Adoptar a ${animalChoosen?.petName}`
     }
     const navigate = useNavigate()

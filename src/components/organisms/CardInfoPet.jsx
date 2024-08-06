@@ -43,7 +43,7 @@ function CardInfoPet() {
                 </div>
             </div>
         </div>
-        <div className='py-3 bg-tertiary text-center'>. </div>
+        <div className='py-3 bg-tertiary text-center'>🐾🐾🐾🐾</div>
     </div>
   )
 }
