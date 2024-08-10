@@ -15,8 +15,10 @@ function FooterComponent() {
   return (
   <div className='relative'>
     { logged && <ActionButton/> }
-    <div className='border-t-2'>
-      <OptionsBar options={optionsArrays.footer}  />
+    <div className=''>
+      <div className='border-t-2'>
+        <OptionsBar options={optionsArrays.footer}  />
+      </div>
       <div className= 'bg-primary text-white text-center text-sm py-2'>
         El amor no se puede comprar pero si se puede adoptar...
       </div>
