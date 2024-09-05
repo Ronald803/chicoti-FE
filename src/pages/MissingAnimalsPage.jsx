@@ -1,12 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAnimalsBackend } from '../requests/animalRequests'
-import Carousel from '../components/organisms/Carousel'
-import { GeneralContext } from '../modules/context/GeneralContext'
-import CardInfoPet from '../components/organisms/CardInfoPet'
 import Gallery from '../components/organisms/Gallery'
 
 function MissingAnimalsPage() {
-  const {isAnimalChoosen} = useContext(GeneralContext)
   const [allMissingAnimals, setAllMissingAnimals] = useState(null)
   useEffect(()=>{
     getPets()
@@ -17,13 +13,7 @@ function MissingAnimalsPage() {
   }
   return (
     <div>
-      {
-        isAnimalChoosen
-        ?
-        <CardInfoPet/>
-        :
-        <Gallery petsArray={allMissingAnimals}/>
-      }
+      <Gallery petsArray={allMissingAnimals}/>
     </div>
   )
 }

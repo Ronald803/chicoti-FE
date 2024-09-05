@@ -1,28 +1,22 @@
-import React, { useContext } from 'react'
-import { GeneralContext } from '../../modules/context/GeneralContext'
+import React, { useState, useEffect } from 'react'
 import ButtonForm from '../atoms/ButtonForm'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { notificateAnimalOwner } from '../../requests/animalRequests'
 import successAlert from '../../alerts/successAlert'
 import buttonAlert from '../../alerts/buttonAlert'
 
-function ActionButton() {
-    const {animalChoosen,isAnimalChoosen} = useContext(GeneralContext)
-    const location = useLocation()
-    let buttonName = ''
-    if(location.pathname=='/missing' && !isAnimalChoosen){
-        buttonName = 'Publicar perdid@'
-    } else if(location.pathname=='/found' && !isAnimalChoosen){
-        buttonName = 'Publicar encontrado'
-    } else if(location.pathname=='/homeless' && !isAnimalChoosen){
-        buttonName = 'Publicar en adopción'
-    } else if(animalChoosen?.characteristic == 'missing'){
-        buttonName = `Encontré a ${animalChoosen?.petName}`
-    } else if(animalChoosen?.characteristic == 'found') {
-        buttonName = `Conozco donde vive ${animalChoosen?.petName}`
-    } else if(animalChoosen?.characteristic == 'homeless'){
-        buttonName = `Adoptar a ${animalChoosen?.petName}`
-    }
+function ActionButton({animalChoosen}) {
+    const [buttonText, setButtonText] = useState('')
+    useEffect(()=>{
+        if(animalChoosen?.characteristic == 'missing'){
+            setButtonText(`Encontré a ${animalChoosen?.petName}`)
+        } else if(animalChoosen?.characteristic == 'found') {
+            setButtonText(`Conozco donde vive ${animalChoosen?.petName}`)
+        } else if(animalChoosen?.characteristic == 'homeless'){
+            setButtonText(`Adoptar a ${animalChoosen?.petName}`)
+        }
+    },[animalChoosen])
+
     const navigate = useNavigate()
     const notificate = async () => {
         const answer = await notificateAnimalOwner(animalChoosen)
@@ -42,14 +36,10 @@ function ActionButton() {
         }
     }
   return (
-    <div className='w-full flex justify-center absolute  -top-12'>
-        {
-            buttonName.length > 0
-            &&
-            <div className='w-2/3 fixed'>
-                <ButtonForm buttonText={buttonName} onClick={handleAction} bg='bg-primary' />
+    <div className='w-full flex justify-center bg-tertiary'>
+            <div className='w-2/3'>
+                <ButtonForm buttonText={buttonText} onClick={handleAction} bg='bg-primary' />
             </div>
-        }
     </div>
 )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 function OneLineLabelSelect(props) {
   return (
-<div className='flex pt-1'>
+<div className='flex pt-2'>
     <label 
       className='w-1/3' 
       htmlFor={props.id}

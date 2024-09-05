@@ -14,7 +14,6 @@ function FooterComponent() {
   },[])
   return (
   <div className='relative'>
-    { logged && <ActionButton/> }
     <div className=''>
       <div className='border-t-2'>
         <OptionsBar options={optionsArrays.footer}  />

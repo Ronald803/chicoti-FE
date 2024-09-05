@@ -13,17 +13,21 @@ import UserPage from './pages/UserPage'
 import SearchPage from './pages/SearchPage'
 import AboutUs from './pages/AboutUs'
 import RegisterAnimalPage from './pages/RegisterAnimalPage'
+import PetDetailPage from './pages/PetDetailPage'
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: '/',            element: <HomePage/>},
-    { path: '/missing',     element: <MissingAnimalsPage/>},
-    { path: '/found',       element: <FoundAnimalsPage/>},
-    { path: '/homeless',    element: <HomelessAnimalsPage/>},
-    { path: '/user',        element: <UserPage/>},
-    { path: '/search',      element: <SearchPage/>},
-    { path: '/aboutus',     element: <AboutUs/>},
-    { path: '/registerpet', element: <RegisterAnimalPage/>},
+    { path: '/',                element: <HomePage/>},
+    { path: '/missing',         element: <MissingAnimalsPage/>},
+    { path: '/missing/:petId',  element: <PetDetailPage/>},
+    { path: '/found',           element: <FoundAnimalsPage/>},
+    { path: '/found/:petId',    element: <PetDetailPage/>},
+    { path: '/homeless',        element: <HomelessAnimalsPage/>},
+    { path: '/homeless/:petId', element: <PetDetailPage/>},
+    { path: '/user',            element: <UserPage/>},
+    { path: '/search',          element: <SearchPage/>},
+    { path: '/aboutus',         element: <AboutUs/>},
+    { path: '/registerpet',     element: <RegisterAnimalPage/>},
 
     { path: '/new-user',  element: <CreateUserForm/>},
     { path: '/login',     element: <LoginForm/>},
