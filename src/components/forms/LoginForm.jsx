@@ -22,10 +22,12 @@ function LoginForm() {
         e.preventDefault();
         loginBackendRequest(user)
             .then(answer=>{
-                sessionStorage.setItem('n',answer.data.body.name);
-                sessionStorage.setItem('t',answer.data.body.token);
-                sessionStorage.setItem('r',answer.data.body.rol);
-                sessionStorage.setItem('c',answer.data.body.cellphone);
+                console.log(answer.data.body);
+                localStorage.setItem('n',answer.data.body.name);
+                localStorage.setItem('t',answer.data.body.token);
+                localStorage.setItem('r',answer.data.body.rol);
+                localStorage.setItem('c',answer.data.body.cellphone);
+                localStorage.setItem('e',answer.data.body.email);
                 successAlert('Bienvenid@ ' + answer.data.body.name)
                 setIsLogged(true)
                 setUserName(answer.data.body.name)

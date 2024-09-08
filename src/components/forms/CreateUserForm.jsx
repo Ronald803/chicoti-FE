@@ -23,9 +23,10 @@ function CreateUserForm() {
         postNewUserBackend(newUser)
             .then(answer=>{
                 console.log(answer);
-                sessionStorage.setItem('n',answer.data.body.name);
-                sessionStorage.setItem('t',answer.data.body.token);
-                sessionStorage.setItem('r',answer.data.body.rol);
+                localStorage.setItem('n',answer.data.body.name);
+                localStorage.setItem('t',answer.data.body.token);
+                localStorage.setItem('r',answer.data.body.rol);
+                localStorage.setItem('e',answer.data.body.email);
                 successAlert('Bienvenid@ ' + answer.data.body.name)
                 setTimeout(() => {
                     navigate('/missing')

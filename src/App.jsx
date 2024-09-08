@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage'
 import MissingAnimalsPage from './pages/MissingAnimalsPage'
 import FoundAnimalsPage from './pages/FoundAnimalsPage'
 import HomelessAnimalsPage from './pages/HomelessAnimalsPage'
-import CreateUserForm from './components/forms/CreateUserForm'
 import LoginForm from './components/forms/LoginForm'
 import UrlImageFIxerPage from './pages/UrlImageFIxerPage'
 import NavBar from './components/organisms/NavBar'
@@ -14,6 +13,7 @@ import SearchPage from './pages/SearchPage'
 import AboutUs from './pages/AboutUs'
 import RegisterAnimalPage from './pages/RegisterAnimalPage'
 import PetDetailPage from './pages/PetDetailPage'
+import CreateUserPage from './pages/CreateUserPage'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -29,7 +29,7 @@ const AppRoutes = () => {
     { path: '/aboutus',         element: <AboutUs/>},
     { path: '/registerpet',     element: <RegisterAnimalPage/>},
 
-    { path: '/new-user',  element: <CreateUserForm/>},
+    { path: '/new-user',  element: <CreateUserPage/>},
     { path: '/login',     element: <LoginForm/>},
     { path: '/urlImage',  element: <UrlImageFIxerPage/> }
   ])

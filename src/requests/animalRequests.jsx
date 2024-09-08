@@ -2,7 +2,7 @@ import axios from "axios";
 
 //const url = 'http://localhost:4000/api/animals/'
 const url = 'https://chicoti-be.vercel.app/api/animals/'
-const t = sessionStorage.getItem('t')
+const t = localStorage.getItem('t')
 
 export function postNewAnimalBackend(animalData,characteristic){
     console.log(animalData);
@@ -45,5 +45,20 @@ export function notificateAnimalOwner(petInfo){
             petInfo,
             {headers: { "xtoken": t}}
         )
+    )
+}
+
+export function getMyAnimalPosts(){
+    return axios.get(
+        url + 'my-posts',
+        {headers: { "xtoken": t}}
+    )
+}
+
+export function deleteAnimalPost(petId){
+    return axios.put(
+        url + petId,
+        {characteristic: 'Publicación eliminada'},
+        {headers: { "xtoken": t}},
     )
 }

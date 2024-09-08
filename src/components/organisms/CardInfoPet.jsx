@@ -1,13 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { GeneralContext } from '../../modules/context/GeneralContext'
+import React from 'react'
 import ActionButton from '../molecules/ActionButton'
 
 function CardInfoPet({animalChoosen}) {
-    const { setIsAnimalChoosen, setAnimalChoosen } = useContext(GeneralContext)
-    const goBack = () => {
-        setAnimalChoosen(null)
-        setIsAnimalChoosen(false)
-    }
     return (
         <div className='w-full rounded-lg pt-1'>
             <div className='flex justify-center'>
