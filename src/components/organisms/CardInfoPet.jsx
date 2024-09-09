@@ -1,7 +1,8 @@
 import React from 'react'
 import ActionButton from '../molecules/ActionButton'
+import ProfileSingleDetail from '../molecules/ProfileSingleDetail'
 
-function CardInfoPet({animalChoosen}) {
+function CardInfoPet({ animalChoosen }) {
     return (
         <div className='w-full rounded-lg pt-1'>
             <div className='flex justify-center'>
@@ -14,7 +15,7 @@ function CardInfoPet({animalChoosen}) {
                             />
                         </div>
                     </div>
-                    <div className='py-2 px-4 bg-tertiary text-sm lg:py-9'>
+                    <div className='py-2 px-2 bg-tertiary text-sm lg:py-9'>
                         <div className='px-3 lg:px-5'>
                             <div className='flex w-40 bg-white rounded-md pb-1 justify-center'>
                                 <p className='text-xl pe-1'>{animalChoosen?.species == 'dog' ? '🐶' : ''} {animalChoosen?.species == 'cat' ? '😸' : ''} </p>
@@ -24,17 +25,18 @@ function CardInfoPet({animalChoosen}) {
                         <div className='py-1 lg:py-2'>
                             <hr /><hr />
                         </div>
-                        <div className='px-3 py-1 lg:px-5'>
-                            <p className='lg:py-1'>Género: {animalChoosen?.gender}</p>
-                            <p className='lg:py-1'>Raza: {animalChoosen?.breed}</p>
-                            <p className='lg:py-1'>Edad: {animalChoosen?.age} año(s)</p>
-                            <p className='lg:py-1'>{animalChoosen?.other}</p>
-                        </div>
-                        <div className='py-1 lg:py-5'>
-                            <hr /><hr />
-                        </div>
-                        <div className='px-3 py-1 lg:px-5'>
-                            <p>Celular: {animalChoosen?.cellphones[0]}</p>
+                        <div className='px-1 py-1 lg:px-5'>
+                            <div className='flex'>
+                                <div className='w-1/2'>
+                                    <ProfileSingleDetail icon='🐾' detailTitle='Género' detailInfo={animalChoosen?.gender} />
+                                    <ProfileSingleDetail icon='🧬' detailTitle='Raza' detailInfo={animalChoosen?.breed} />
+                                    <ProfileSingleDetail icon='⌛' detailTitle='Edad (años)' detailInfo={animalChoosen?.age} />
+                                    <ProfileSingleDetail icon='📞' detailTitle='Celular de contacto' detailInfo={animalChoosen?.cellphones[0]} />
+                                </div>
+                                <div className='w-1/2 p-2 border-s-2'>
+                                    <ProfileSingleDetail icon='🗒️' detailTitle='Información extra' detailInfo={animalChoosen?.other} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
